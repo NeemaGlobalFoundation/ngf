@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media | Neema Global Foundation</title>
+  <meta name="description" content="Media hub for Neema Global Foundation: featured documentaries, press mentions, and transparency resources." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1100px 640px at 18% -10%, rgba(230,57,70,.20), transparent 60%),
+        radial-gradient(900px 520px at 92% 8%, rgba(255,77,87,.12), transparent 55%),
+        #0c0c0c;
+      color:#fff;
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    ::selection{background:rgba(233,69,96,.35)}
+
+    :root{
+      --bg:#0c0c0c;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --stroke:rgba(255,255,255,.10);
+      --text:#fff;
+      --muted:rgba(255,255,255,.75);
+      --accent:#e63946;
+      --accent2:#ff4d57;
+      --shadow:0 25px 70px rgba(0,0,0,.55);
+      --container:1200px;
+
+      --sec: 106px;
+      --sec-m: 78px;
+    }
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 22px}
+    section{padding:var(--sec) 0}
+    @media(max-width:900px){section{padding:var(--sec-m) 0}}
+
+    /* =========================
+       HEADER (match your homepage)
+    ========================= */
+    header#top{
+      position:fixed;top:0;left:0;width:100%;height:86px;z-index:5000;
+      background:rgba(0,0,0,.86);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+    .header-shell{width:100%;padding:0 18px}
+    .header-inner{
+      height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 0 auto}
+    .brand img{width:40px;height:40px;border-radius:12px}
+    .brand .name{font-weight:950;letter-spacing:.2px;white-space:nowrap;line-height:1.05}
+    .brand .tag{display:block;font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.1;white-space:nowrap}
+
+    nav.desktop{
+      flex:1 1 auto;
+      display:flex;align-items:center;justify-content:center;gap:20px;
+      white-space:nowrap;min-width:0;
+    }
+    nav.desktop a{
+      font-size:.92rem;color:rgba(255,255,255,.86);
+      font-weight:850;letter-spacing:.18px;
+      padding:10px 8px;border-radius:12px;
+      transition:background .18s ease,color .18s ease,transform .18s ease;
+      position:relative;
+    }
+    nav.desktop a:hover{color:#fff;background:rgba(255,255,255,.06);transform:translateY(-1px)}
+    nav.desktop a.active{
+      color:#fff;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(230,57,70,.28);
+    }
+
+    .header-actions{
+      flex:0 0 auto;
+      display:flex;align-items:center;justify-content:flex-end;gap:14px;
+    }
+
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .icon-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.10);border-color:rgba(230,57,70,.28)}
+    .search-icon{width:18px;height:18px;border:2px solid #fff;border-radius:50%;position:relative;opacity:.95}
+    .search-icon::after{content:"";position:absolute;width:10px;height:2px;background:#fff;right:-8px;bottom:-2px;transform:rotate(45deg);border-radius:999px}
+
+    .hamburger{
+      display:none;
+      width:44px;height:44px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+      cursor:pointer;padding:0;
+      align-items:center;justify-content:center;gap:6px;flex-direction:column;
+      transition:transform .18s ease, border-color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .hamburger:hover{transform:translateY(-2px);border-color:rgba(230,57,70,.28)}
+    .hamburger span{width:20px;height:2px;background:#fff;border-radius:999px;opacity:.95}
+
+    @media(max-width:980px){
+      nav.desktop{display:none}
+      .hamburger{display:flex}
+      .header-shell{padding:0 14px}
+      .icon-btn,.hamburger{width:40px;height:40px}
+      .brand img{width:36px;height:36px}
+    }
+
+    /* =========================
+       SEARCH OVERLAY (premium)
+    ========================= */
+    .search-overlay{
+      position:fixed;inset:0;background:rgba(0,0,0,.86);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      display:none;z-index:99999;padding:92px 0 40px;
+    }
+    .search-overlay.active{display:block}
+    .search-box{max-width:900px;margin:0 auto;padding:0 22px}
+    .search-bar{
+      display:flex;align-items:center;gap:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;padding:14px 16px;box-shadow:var(--shadow)
+    }
+    .search-bar input{width:100%;background:transparent;border:none;outline:none;color:#fff;font-size:1rem}
+    .search-actions{display:flex;gap:10px;align-items:center}
+    .search-close{
+      width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);cursor:pointer;position:relative;
+      transition:transform .18s ease,background .18s ease;
+    }
+    .search-close:hover{transform:translateY(-1px);background:rgba(255,255,255,.10)}
+    .search-close::before,.search-close::after{
+      content:"";position:absolute;top:50%;left:50%;width:20px;height:2px;background:#fff;border-radius:999px
+    }
+    .search-close::before{transform:translate(-50%,-50%) rotate(45deg)}
+    .search-close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+    .search-results{
+      margin-top:16px;background:rgba(21,21,21,.85);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;overflow:hidden
+    }
+    .result-item{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+    .result-item:last-child{border-bottom:none}
+    .result-item strong{display:block;font-size:.98rem;font-weight:950}
+    .result-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
+    .no-results{padding:18px 16px;color:rgba(255,255,255,.70)}
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+    .mobile-panel{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);
+      backdrop-filter:blur(16px);display:none;z-index:6000
+    }
+    .mobile-panel.active{display:block}
+    .mobile-sheet{
+      position:absolute;top:0;right:0;height:100%;width:min(370px,92vw);
+      background:linear-gradient(180deg,rgba(18,18,18,.98),rgba(0,0,0,.98));
+      border-left:1px solid rgba(255,255,255,.08);
+      box-shadow:-30px 0 90px rgba(0,0,0,.65);
+      padding:16px;display:flex;flex-direction:column;gap:12px;
+      animation:sheetIn .25s ease forwards
+    }
+    @keyframes sheetIn{from{transform:translateX(18px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .close-x{
+      width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);cursor:pointer;position:relative
+    }
+    .close-x::before,.close-x::after{
+      content:"";position:absolute;top:50%;left:50%;width:18px;height:2px;background:#fff;border-radius:999px
+    }
+    .close-x::before{transform:translate(-50%,-50%) rotate(45deg)}
+    .close-x::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+    .mobile-nav{display:flex;flex-direction:column;gap:8px;padding:10px 0}
+    .mobile-nav a{
+      padding:10px 12px;border-radius:12px;
+      background:transparent;border:1px solid rgba(255,255,255,.08);
+      font-weight:900;letter-spacing:.2px;font-size:.95rem;
+      transition:background .18s ease,transform .18s ease,border-color .18s ease;
+    }
+    .mobile-nav a:hover{background:rgba(255,255,255,.05);transform:translateX(2px);border-color:rgba(230,57,70,.22)}
+    .mobile-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:999px;font-weight:950;font-size:.92rem;
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;
+      cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+      user-select:none;white-space:nowrap
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      box-shadow:0 14px 35px rgba(230,57,70,.22)
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(230,57,70,.40)}
+    .btn.ghost:hover{background:rgba(230,57,70,.10);border-color:rgba(230,57,70,.60)}
+    .btn.block{width:100%}
+
+    /* =========================
+       PAGE HERO (5 slides, constant text)
+    ========================= */
+    .hero{
+      min-height:120vh;
+      padding-top:110px;
+      position:relative;
+      overflow:hidden;
+      display:flex;align-items:center;
+    }
+    .hero-slide{
+      position:absolute;inset:0;background-size:cover;background-position:center;
+      opacity:0;transform:scale(1.03);
+      transition:opacity 1s ease,transform 6s ease;
+      filter:saturate(1.02) contrast(1.02);
+    }
+    .hero-slide.active{opacity:1;transform:scale(1)}
+    .hero::before{
+      content:"";position:absolute;inset:0;z-index:1;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.40) 85%,rgba(0,0,0,.22) 100%),
+        radial-gradient(900px 520px at 30% 35%, rgba(0,0,0,.34), transparent 60%);
+    }
+    .hero-content{position:relative;z-index:2;max-width:820px}
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;padding:8px 14px;border-radius:999px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.92);font-weight:950;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem
+    }
+    .hero h1{
+      margin-top:16px;
+      font-size:clamp(1.8rem,3.4vw,2.7rem);
+      line-height:1.12;
+      letter-spacing:-0.02em;
+      font-weight:950;
+      text-shadow:0 10px 30px rgba(0,0,0,.75);
+    }
+    .hero p{margin-top:12px;color:rgba(255,255,255,.86);text-shadow:0 8px 22px rgba(0,0,0,.55)}
+    .hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    @media(max-width:900px){.hero-actions .btn{width:100%}}
+
+    .dots{
+      position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);
+      display:flex;gap:10px;padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(10px)
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
+    .dot.active{background:#fff}
+
+    /* =========================
+       SECTION TITLES + GLASS
+    ========================= */
+    .section-title{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+      flex-wrap:wrap;margin-bottom:22px
+    }
+    .section-title h2{
+      font-size:clamp(1.4rem,2.6vw,2rem);
+      letter-spacing:-0.02em;font-weight:950;line-height:1.1
+    }
+    .section-title h2::after{
+      content:"";display:block;width:56px;height:3px;background:var(--accent);
+      border-radius:999px;margin-top:12px
+    }
+    .section-sub{color:var(--muted);max-width:840px;margin-top:10px;font-size:1rem}
+
+    .glass{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+    }
+
+    /* =========================
+       FEATURED DOC (two options)
+    ========================= */
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+      align-items:start;
+    }
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
+    .panel{padding:22px}
+    .video-wrap{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.22);
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+    .video-wrap video, .video-wrap iframe{
+      width:100%;
+      height:420px;
+      display:block;
+      border:0;
+      background:#000;
+    }
+    @media(max-width:980px){.video-wrap video, .video-wrap iframe{height:300px}}
+
+    .video-badge{
+      position:absolute;left:14px;top:14px;z-index:2;
+      padding:10px 12px;border-radius:999px;
+      background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14);
+      font-weight:950;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem
+    }
+
+    .switcher{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
+    }
+
+    /* =========================
+       PRESS MENTIONS (7 youtube)
+    ========================= */
+    .press-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+    @media(max-width:1050px){.press-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.press-grid{grid-template-columns:1fr}}
+
+    .press-card{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.20);
+      box-shadow:0 18px 60px rgba(0,0,0,.45);
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .press-card:hover{transform:translateY(-2px);border-color:rgba(230,57,70,.22);background:rgba(255,255,255,.04)}
+    .press-embed{
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      display:block;
+      background:#000;
+    }
+    .press-meta{padding:12px 12px 14px}
+    .press-meta b{display:block;font-weight:950}
+    .press-meta span{display:block;margin-top:6px;color:rgba(255,255,255,.74);font-weight:850;font-size:.92rem}
+
+    /* =========================
+       TRANSPARENCY PDFs
+    ========================= */
+    .pdf-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media(max-width:1050px){.pdf-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.pdf-grid{grid-template-columns:1fr}}
+
+    .pdf{
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .pdf:hover{transform:translateY(-1px);background:rgba(255,255,255,.07);border-color:rgba(230,57,70,.20)}
+    .pdf b{display:block;font-weight:950}
+    .pdf span{display:block;margin-top:6px;color:rgba(255,255,255,.72);font-weight:850;font-size:.92rem}
+    .pdf a{display:inline-flex;margin-top:10px;text-decoration:underline;color:#fff;opacity:.92;font-weight:900}
+
+    /* =========================
+       FOOTER (match)
+    ========================= */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,rgba(21,21,21,.7),rgba(0,0,0,.98));
+      padding:70px 0 28px;
+      margin-top:30px;
+    }
+    .footer-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr 1.1fr;gap:22px}
+    .footer-card{
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;padding:18px
+    }
+    .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .footer-brand img{width:40px;height:40px;border-radius:12px}
+    .footer-card h4{font-size:1rem;font-weight:950;margin-bottom:10px}
+    .footer-card p,.footer-card a,.footer-card li{color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.7}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-links a:hover{color:#fff}
+    .subscribe{display:flex;gap:10px;margin-top:10px}
+    .subscribe input{
+      flex:1;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;padding:12px 14px;color:#fff;outline:none
+    }
+    .subscribe button{
+      border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;padding:12px 16px;font-weight:950;color:#fff;cursor:pointer
+    }
+    .footer-bottom{
+      margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+      color:rgba(255,255,255,.65);font-size:.9rem
+    }
+    @media(max-width:980px){.footer-grid{grid-template-columns:1fr}}
+
+    /* reveal on scroll */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .hero-slide{transition:none}
+    }
+
+    /* small utility spacing */
+    .mt12{margin-top:12px}
+	
+	.video-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 2px solid rgba(255,255,255,0.08);
+}
+
+/* 🎥 Featured glow border */
+.video-wrap:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 180, 255, 0.35),
+              0 0 60px rgba(0, 180, 255, 0.15);
+  border-color: rgba(0, 180, 255, 0.6);
+}
+
+/* 🎬 Play-on-hover animation */
+.doc-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-wrap:hover .doc-video {
+  transform: scale(1.03);
+}
+
+/* 🧠 YouTube-style thumbnail feel */
+.video-wrap video {
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* 📱 Mobile stacking layout */
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* hidden images */
+.gallery-grid img.extra {
+  display: none;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.press-card {
+  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s;
+}
+
+.press-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,180,255,0.3);
+  border-color: rgba(0,180,255,0.6);
+}
+
+/* thumbnail */
+.press-thumb {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.press-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.press-card:hover img {
+  transform: scale(1.08);
+}
+
+/* play button */
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* meta */
+.press-meta {
+  padding: 12px;
+}
+
+.press-meta b {
+  display: block;
+  font-size: 1rem;
+}
+
+.press-meta span {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .press-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* HERO */
+.press-hero {
+  margin-bottom: 25px;
+}
+
+.hero-media {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transition: 0.4s;
+}
+
+.hero-media:hover img {
+  transform: scale(1.05);
+}
+
+/* overlay */
+.hero-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.hero-overlay h3 {
+  font-size: 1.6rem;
+  margin: 8px 0;
+}
+
+/* GRID FIX (thumbnail fit PERFECTLY) */
+.press-thumb {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+}
+
+.press-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* IMPORTANT FIX */
+}
+
+/* SEARCH BAR */
+.press-tools {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.press-tools input,
+.press-tools select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="top">
+  <div class="header-shell">
+    <div class="header-inner">
+
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="Neema Global Foundation logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL FOUNDATION</div>
+          <span class="tag">HOPE AND MERCY IN ACTION</span>
+        </div>
+      </a>
+
+      <nav class="desktop" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="programs.html">Programs</a>
+        
+        <a href="get-involved.html">Get Involved</a>
+        <a href="donate.html">Donate</a>
+        <a class="active" href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="openSearch" aria-label="Search">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="hamburger" id="openMobile" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-box">
+    <div class="search-bar">
+      <input id="searchInput" type="search" placeholder="Search pages… (type to filter)" autocomplete="off" />
+      <div class="search-actions">
+        <button class="search-close" id="closeSearch" aria-label="Close search"></button>
+      </div>
+    </div>
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+  <div class="mobile-sheet" role="dialog" aria-label="Mobile menu">
+    <div class="mobile-top">
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL</div>
+          <span class="tag">HOPE AND MERCY</span>
+        </div>
+      </a>
+      <button class="close-x" id="closeMobile" aria-label="Close menu"></button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="programs.html">Programs</a>
+      
+      <a href="get-involved.html">Get Involved</a>
+      <a href="donate.html">Donate</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <div class="mobile-actions">
+      <a class="btn primary block" href="donate.html">Donate Now</a>
+      <button class="btn ghost block" type="button" id="openSearchFromMobile">Search</button>
+    </div>
+
+    <small>NGF • Kenya &amp; Global Partners</small>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="mediaHero">
+    <!-- 5 slides -->
+    <div class="hero-slide active" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2025/07/DSC_0425-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2025/07/DSC_0296-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-30-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2143-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-318.jpg);"></div>
+
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="kicker">Media</div>
+        <h1>“Let your light shine before others.” — Matthew 5:16</h1>
+        <p>Watch our documentaries, explore press mentions, and access transparency reports that show impact with integrity.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#featured">Featured documentary</a>
+          <a class="btn ghost" href="#press">Press mentions</a>
+          <a class="btn" href="#transparency">Transparency</a>
+		  
+        </div>
+      </div>
+    </div>
+
+    <div class="dots" id="heroDots" aria-label="Hero slider dots">
+      <div class="dot active" data-i="0"></div>
+      <div class="dot" data-i="1"></div>
+      <div class="dot" data-i="2"></div>
+      <div class="dot" data-i="3"></div>
+      <div class="dot" data-i="4"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED DOCUMENTARY -->
+<section id="featured">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <div>
+        <h2>Featured documentaries</h2>
+        <div class="section-sub"></div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- SHORT DOCUMENTARY -->
+      <div class="video-wrap reveal">
+        <div class="video-badge">Short documentary</div>
+
+        <video class="doc-video" muted playsinline controls preload="metadata" poster="...">
+  <source src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Short-form-Neema-Global-Foundation-documentary.mp4" type="video/mp4" />
+</video>
+
+      </div>
+
+      <!-- LONG DOCUMENTARY -->
+      <div class="video-wrap reveal">
+        <div class="video-badge">Long documentary</div>
+
+        <video class="doc-video" muted playsinline controls preload="metadata" poster="...">
+  <source src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Long-form-NGF-docu.mp4" type="video/mp4" />
+</video>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- PRESS MENTIONS -->
+  <section id="press">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <div>
+        <h2>Press Mentions</h2>
+        <div class="section-sub">Media coverage and featured stories about our impact.</div>
+      </div>
+    </div>
+
+    <div class="press-grid">
+
+      <!-- CARD 1 -->
+      <div class="press-card reveal" onclick="loadPress(this, 'my7tmId4mmI')">
+        <div class="press-thumb">
+          <img src="https://img.youtube.com/vi/my7tmId4mmI/maxresdefault.jpg">
+          <div class="play">▶</div>
+        </div>
+        <div class="press-meta">
+          <b>INOORO TV</b>
+          <span>Atumia a ndigwa Ruiru, kwĩitũrũra marĩa mageragĩra athuri ao makua</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="press-card reveal" onclick="loadPress(this, 'VmnSTdXnhDU')">
+        <div class="press-thumb">
+          <img src="https://img.youtube.com/vi/VmnSTdXnhDU/maxresdefault.jpg">
+          <div class="play">▶</div>
+        </div>
+        <div class="press-meta">
+          <b>KBC</b>
+          <span>First Lady affirms government’s commitment to widows’ empowerment</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="press-card reveal" onclick="loadPress(this, 'A96xD56L0OY')">
+        <div class="press-thumb">
+          <img src="https://img.youtube.com/vi/A96xD56L0OY/maxresdefault.jpg">
+          <div class="play">▶</div>
+        </div>
+        <div class="press-meta">
+          <b>K24 DIGITAL</b>
+          <span>Clergy Urge Government to Engage Youth and Widows Amid Unrest</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="press-card reveal" onclick="loadPress(this, 'upULZEGbUdo')">
+        <div class="press-thumb">
+          <img src="https://img.youtube.com/vi/upULZEGbUdo/maxresdefault.jpg">
+          <div class="play">▶</div>
+        </div>
+        <div class="press-meta">
+          <b>KAMEME TV</b>
+          <span>MUTHII WA ATUMIA A NDIGWA</span>
+        </div>
+      </div>
+	  
+	   <!-- CARD 5 -->
+      <div class="press-card reveal" onclick="loadPress(this, 'rmKlvYi5Z-4')">
+        <div class="press-thumb">
+          <img src="https://img.youtube.com/vi/rmKlvYi5Z-4/maxresdefault.jpg">
+          <div class="play">▶</div>
+        </div>
+        <div class="press-meta">
+          <b>INOORO TV</b>
+          <span>Atumia 100 a ndigwa gũtugwo Nakuru</span>
+        </div>
+      </div>
+	  
+
+    </div>
+  </div>
+</section>
+
+  <!-- TRANSPARENCY + PDF REPORTS -->
+  <section id="transparency">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <h2>Transparency</h2>
+          <div class="section-sub">
+            Download assessment reports and accountability resources. 
+          </div>
+        </div>
+      </div>
+
+      <div class="glass panel reveal">
+        <div style="font-weight:950;font-size:1.15rem">Assessment reports (PDF)</div>
+        <p class="mt12" style="color:rgba(255,255,255,.82)">
+          These documents provide program assessments, learning outcomes, and recommendations to strengthen delivery and ensure dignified impact.
+        </p>
+
+        <div class="pdf-grid">
+          <!-- Replace href with your real PDF URLs -->
+          <div class="pdf">
+            <b>Widow Assessment Report — Kamulu & Ruai </b>
+            <span>Baseline and needs assessment summary.</span>
+            <a href="https://neemagospelchurch.com/wp-content/uploads/2026/04/RUAI-KAMULU-WIDOWS-ASSESSMENT-REPORT-2025.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+
+          <div class="pdf">
+            <b>Widow Assessment Report — Matopeni </b>
+            <span>Baseline and needs assessment summary.</span>
+            <a href="https://neemagospelchurch.com/wp-content/uploads/2026/04/MATOPENI-WIDOWS-ASSESSMENT-REPORT-2025.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+
+          <div class="pdf">
+            <b>Widow Assessment Report- Ruiru Mugutha</b>
+            <span>Baseline and needs assessment summary.</span>
+            <a href="https://neemagospelchurch.com/wp-content/uploads/2026/04/RUIRU-MUGUTHA-WIDOWS-ASSESSMENT-REPORT-2025.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+		  
+		  <div class="pdf">
+            <b>Widow Assessment Report- Juja & Thika</b>
+            <span>Baseline and needs assessment summary.</span>
+            <a href="https://neemagospelchurch.com/wp-content/uploads/2026/04/JUJA-THIKA-WIDOWS-ASSESSMENT-REPORT-2025.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+        </div>
+
+        <div class="mt12" style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn primary" href="donate.html">Support Transparency</a>
+          <a class="btn ghost" href="contact.html">Request a report</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MEDIAGALLERY -->
+<section id="media-gallery">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <div>
+        <h2>Media gallery</h2>
+        <div class="section-sub">Moments from our work, impact, and community engagement.</div>
+      </div>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- 40 images (you can replace srcs) -->
+      <!-- First 20 = visible -->
+      <!-- Last 20 = hidden until "See more" -->
+
+      <!-- 1-20 visible -->
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-22-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-31-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-289.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-318.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-342.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-354.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-2-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-15-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-30-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-40-1-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-38-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-43-1-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/178A1999-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/178A2119-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/178A2249-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/178A8972-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-26-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-41-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/DSC_0066-scaled.jpg" />
+      <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/178A2117-scaled.jpg" />
+
+      <!-- 21-40 hidden -->
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-18-1-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-19-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2173-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2172-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2157-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2143-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2142-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2122-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2121-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2119-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2086-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2067-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2066-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A2065-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2025/07/178A1944-1-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-32-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-16-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/Widows-299.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-20-scaled.jpg" />
+      <img class="extra" src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-18-2-scaled.jpg" />
+
+    </div>
+
+    <div style="text-align:center;margin-top:18px">
+      <button class="btn primary" id="toggleGallery">See more</button>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF logo">
+          <div>
+            <div style="font-weight:950">Neema Global Foundation</div>
+            <div style="color:rgba(255,255,255,.70);font-size:.9rem;margin-top:2px">Hope and Mercy in Action</div>
+          </div>
+        </div>
+        <p>
+          Mission-driven programs supporting women, widows, and youth through dignified livelihoods,
+          skills development, and resilience-building across Kenya.
+        </p>
+      </div>
+
+      <div class="footer-card">
+        <h4>Quicklinks</h4>
+        <ul class="footer-links">
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>More</h4>
+        <ul class="footer-links">
+          <li><a href="media.html">Media</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>Newsletter</h4>
+        <p>Get updates, impact stories, and ways to support widows and vulnerable communities.</p>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Thanks! Newsletter form connected later.');">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Neema Global Foundation. All rights reserved.</div>
+      <div>
+        Designed with excellence by
+        <a href="https://wa.me/254707943284" target="_blank" rel="noopener" style="color:#fff;opacity:.9;text-decoration:underline">
+          Rosset Creatives
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const $ = (s, p=document) => p.querySelector(s);
+  const $$ = (s, p=document) => Array.from(p.querySelectorAll(s));
+
+  $("#year").textContent = new Date().getFullYear();
+
+  // mobile menu
+  (function(){
+    const panel = $("#mobilePanel");
+    const open = $("#openMobile");
+    const close = $("#closeMobile");
+
+    function openM(){
+      panel.classList.add("active");
+      panel.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    }
+    function closeM(){
+      panel.classList.remove("active");
+      panel.setAttribute("aria-hidden","true");
+      document.body.style.overflow="";
+    }
+    open?.addEventListener("click", openM);
+    close?.addEventListener("click", closeM);
+    panel?.addEventListener("click", (e)=>{ if(e.target === panel) closeM(); });
+
+    $("#openSearchFromMobile")?.addEventListener("click", ()=>{
+      closeM();
+      setTimeout(()=> openSearch(), 50);
+    });
+  })();
+
+  // search overlay (realtime)
+  const searchOverlay = $("#searchOverlay");
+  const searchInput = $("#searchInput");
+  const searchResults = $("#searchResults");
+
+  const pages = [
+    {title:"Home", desc:"Hero, mission snapshot, map preview, testimonials, founder overview.", href:"index.html"},
+    {title:"About", desc:"Background, founder story, vision & mission, leadership.", href:"about.html"},
+    {title:"Programs", desc:"Program objectives and expected outcomes.", href:"programs.html"},
+    {title:"Impact", desc:"County-level results, stories, measurable outcomes.", href:"impact.html"},
+    {title:"Get Involved", desc:"Volunteer, partner, sponsor, corporate sponsorship.", href:"get-involved.html"},
+    {title:"Donate", desc:"Giving details via M-PESA and bank.", href:"donate.html"},
+    {title:"Media", desc:"Documentaries, press mentions, transparency reports.", href:"media.html"},
+    {title:"Contact", desc:"Reach us for partnerships and inquiries.", href:"contact.html"},
+    {title:"FAQ", desc:"Answers to common questions.", href:"faq.html"},
+  ];
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+
+  function renderResults(q){
+    const query = (q||"").trim().toLowerCase();
+    if(!query){
+      searchResults.innerHTML = `<div class="no-results">Type to search pages…</div>`;
+      return;
+    }
+    const hits = pages.filter(p =>
+      p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
+    );
+    if(!hits.length){
+      searchResults.innerHTML = `<div class="no-results">No results for “${escapeHtml(q)}”.</div>`;
+      return;
+    }
+    searchResults.innerHTML = hits.map(p => `
+      <a class="result-item" href="${p.href}">
+        <strong>${escapeHtml(p.title)}</strong>
+        <span>${escapeHtml(p.desc)}</span>
+      </a>
+    `).join("");
+  }
+
+  function openSearch(){
+    searchOverlay.classList.add("active");
+    searchOverlay.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+    searchInput.value = "";
+    renderResults("");
+    setTimeout(()=>searchInput.focus(), 50);
+  }
+  function closeSearch(){
+    searchOverlay.classList.remove("active");
+    searchOverlay.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+  }
+
+  $("#openSearch")?.addEventListener("click", openSearch);
+  $("#closeSearch")?.addEventListener("click", closeSearch);
+  searchOverlay?.addEventListener("click", (e)=>{ if(e.target === searchOverlay) closeSearch(); });
+  searchInput?.addEventListener("input", (e)=> renderResults(e.target.value));
+
+  document.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape"){
+      if(searchOverlay.classList.contains("active")) closeSearch();
+      if($("#mobilePanel")?.classList.contains("active")) $("#closeMobile")?.click();
+    }
+  });
+
+  // hero slider
+  (function(){
+    const slides = $$(".hero-slide");
+    const dots = $$("#heroDots .dot");
+    let i = 0;
+    let timer;
+
+    function setSlide(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx)=> s.classList.toggle("active", idx===i));
+      dots.forEach((d, idx)=> d.classList.toggle("active", idx===i));
+    }
+    function start(){
+      stop();
+      timer = setInterval(()=> setSlide(i+1), 5200);
+    }
+    function stop(){ if(timer) clearInterval(timer); }
+    dots.forEach(d => d.addEventListener("click", ()=> { setSlide(+d.dataset.i); start(); }));
+
+    setSlide(0);
+    start();
+  })();
+
+  // reveal on scroll
+  (function(){
+    const els = $$(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("in");
+      });
+    }, {threshold:.12});
+    els.forEach(el=> io.observe(el));
+  })();
+
+  // featured documentary switch + hover-play
+  (function(){
+    const wrap = $("#docWrap");
+    const video = $("#featuredVideo");
+    const badge = $("#docBadge");
+    const srcEl = $("#videoSrc");
+    const btnShort = $("#btnShort");
+    const btnLong = $("#btnLong");
+
+    // Replace with your real paths/urls
+    const SHORT_SRC = "https://neemagospelchurch.com/wp-content/uploads/2026/04/Short-form-Neema-Global-Foundation-documentary.mp4";
+    const LONG_SRC  = "https://neemagospelchurch.com/wp-content/uploads/2026/04/Long-form-NGF-docu.mp4";
+
+    function load(src, label){
+      badge.textContent = label;
+      video.pause();
+      video.currentTime = 0;
+      srcEl.src = src;
+      video.load();
+      // optional auto-play after switch on desktop (safe try)
+      play();
+    }
+
+    const play = async () => { try { await video.play(); } catch(e){} };
+    const stop = () => { video.pause(); video.currentTime = 0; };
+
+    // hover play (desktop) + tap toggle (mobile)
+    wrap?.addEventListener("mouseenter", play);
+    wrap?.addEventListener("mouseleave", stop);
+    wrap?.addEventListener("click", ()=> { if(video.paused) play(); else stop(); });
+
+    // stop when out of view
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(!e.isIntersecting) stop(); });
+    }, {threshold:.25});
+    if(wrap) io.observe(wrap);
+
+    btnShort?.addEventListener("click", ()=> load(SHORT_SRC, "Short documentary"));
+    btnLong?.addEventListener("click", ()=> load(LONG_SRC, "Long documentary"));
+  })();
+
+const videos = document.querySelectorAll(".doc-video");
+
+/* ⏯️ Auto-pause other video when one plays */
+videos.forEach(video => {
+  video.addEventListener("play", () => {
+    videos.forEach(v => {
+      if (v !== video) v.pause();
+    });
+  });
+});
+
+/* 🎬 Play on hover (desktop only) */
+videos.forEach(video => {
+  const wrapper = video.closest(".video-wrap");
+
+  wrapper.addEventListener("mouseenter", () => {
+    if (window.innerWidth > 768) {
+      video.play();
+    }
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    if (window.innerWidth > 768) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
+});
+
+
+const btn = document.getElementById("toggleGallery");
+const extras = document.querySelectorAll(".gallery-grid img.extra");
+
+let expanded = false;
+
+btn.addEventListener("click", () => {
+  expanded = !expanded;
+
+  extras.forEach(img => {
+    img.style.display = expanded ? "block" : "none";
+  });
+
+  btn.textContent = expanded ? "Show less" : "See more";
+});
+
+function loadPress(card, id) {
+
+  const thumb = card.querySelector(".press-thumb");
+
+  thumb.innerHTML = `
+    <iframe
+      src="https://www.youtube.com/embed/${id}?autoplay=1&mute=1&rel=0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      style="width:100%;height:100%;border:0;">
+    </iframe>
+  `;
+}
+</script>
+
+</body>
+</html>

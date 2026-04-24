@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Involved | Neema Global Foundation</title>
+  <meta name="description" content="Get involved with Neema Global Foundation: donate, volunteer, partner, sponsor a widow, and corporate sponsorship opportunities." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1100px 640px at 18% -10%, rgba(230,57,70,.20), transparent 60%),
+        radial-gradient(900px 520px at 92% 8%, rgba(255,77,87,.12), transparent 55%),
+        #0c0c0c;
+      color:#fff;
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    ::selection{background:rgba(233,69,96,.35)}
+
+    :root{
+      --bg:#0c0c0c;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --stroke:rgba(255,255,255,.10);
+      --text:#fff;
+      --muted:rgba(255,255,255,.75);
+      --accent:#e63946;
+      --accent2:#ff4d57;
+      --shadow:0 25px 70px rgba(0,0,0,.55);
+      --container:1200px;
+
+      --sec: 110px;
+      --sec-m: 78px;
+    }
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 22px}
+    section{padding:var(--sec) 0}
+    @media(max-width:900px){section{padding:var(--sec-m) 0}}
+
+    /* =========================
+       HEADER (same as homepage)
+    ========================= */
+    header#top{
+      position:fixed;top:0;left:0;width:100%;height:86px;z-index:5000;
+      background:rgba(0,0,0,.86);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+    .header-shell{width:100%;padding:0 18px}
+    .header-inner{
+      height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 0 auto}
+    .brand img{width:40px;height:40px;border-radius:12px}
+    .brand .name{font-weight:950;letter-spacing:.2px;white-space:nowrap;line-height:1.05}
+    .brand .tag{display:block;font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.1;white-space:nowrap}
+
+    nav.desktop{
+      flex:1 1 auto;
+      display:flex;align-items:center;justify-content:center;gap:20px;
+      white-space:nowrap;min-width:0;
+    }
+    nav.desktop a{
+      font-size:.92rem;color:rgba(255,255,255,.86);
+      font-weight:850;letter-spacing:.18px;
+      padding:10px 8px;border-radius:12px;
+      transition:background .18s ease,color .18s ease,transform .18s ease;
+      position:relative;
+    }
+    nav.desktop a:hover{
+      color:#fff;background:rgba(255,255,255,.06);transform:translateY(-1px);
+    }
+    nav.desktop a.active{
+      color:#fff;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(230,57,70,.28);
+    }
+
+    .header-actions{
+      flex:0 0 auto;
+      display:flex;align-items:center;justify-content:flex-end;gap:14px;
+    }
+
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .icon-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.10);border-color:rgba(230,57,70,.28)}
+    .search-icon{
+      width:18px;height:18px;border:2px solid #fff;border-radius:50%;position:relative;opacity:.95
+    }
+    .search-icon::after{
+      content:"";position:absolute;width:10px;height:2px;background:#fff;right:-8px;bottom:-2px;
+      transform:rotate(45deg);border-radius:999px
+    }
+
+    .hamburger{
+      display:none;
+      width:44px;height:44px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+      cursor:pointer;padding:0;
+      align-items:center;justify-content:center;gap:6px;flex-direction:column;
+      transition:transform .18s ease, border-color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .hamburger:hover{transform:translateY(-2px);border-color:rgba(230,57,70,.28)}
+    .hamburger span{width:20px;height:2px;background:#fff;border-radius:999px;opacity:.95}
+
+    @media(max-width:980px){
+      nav.desktop{display:none}
+      .hamburger{display:flex}
+      .header-shell{padding:0 14px}
+      .icon-btn,.hamburger{width:40px;height:40px}
+      .brand img{width:36px;height:36px}
+    }
+
+    /* =========================
+       SEARCH OVERLAY (premium)
+    ========================= */
+    .search-overlay{
+      position:fixed;inset:0;background:rgba(0,0,0,.86);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      display:none;z-index:99999;padding:92px 0 40px;
+      pointer-events:auto;
+    }
+    .search-overlay.active{display:block}
+    .search-box{max-width:900px;margin:0 auto;padding:0 22px}
+    .search-bar{
+      display:flex;align-items:center;gap:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;padding:14px 16px;box-shadow:var(--shadow)
+    }
+    .search-bar input{
+      width:100%;background:transparent;border:none;outline:none;color:#fff;font-size:1rem
+    }
+    .search-actions{display:flex;gap:10px;align-items:center}
+    .search-close{
+      width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);cursor:pointer;position:relative;
+      transition:transform .18s ease,background .18s ease;
+    }
+    .search-close:hover{transform:translateY(-1px);background:rgba(255,255,255,.10)}
+    .search-close::before,.search-close::after{
+      content:"";position:absolute;top:50%;left:50%;width:20px;height:2px;background:#fff;border-radius:999px
+    }
+    .search-close::before{transform:translate(-50%,-50%) rotate(45deg)}
+    .search-close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+    .search-results{
+      margin-top:16px;background:rgba(21,21,21,.85);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;overflow:hidden
+    }
+    .result-item{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+    .result-item:last-child{border-bottom:none}
+    .result-item strong{display:block;font-size:.98rem;font-weight:950}
+    .result-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
+    .no-results{padding:18px 16px;color:rgba(255,255,255,.70)}
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+    .mobile-panel{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);
+      backdrop-filter:blur(16px);display:none;z-index:6000
+    }
+    .mobile-panel.active{display:block}
+    .mobile-sheet{
+      position:absolute;top:0;right:0;height:100%;width:min(370px,92vw);
+      background:linear-gradient(180deg,rgba(18,18,18,.98),rgba(0,0,0,.98));
+      border-left:1px solid rgba(255,255,255,.08);
+      box-shadow:-30px 0 90px rgba(0,0,0,.65);
+      padding:16px;display:flex;flex-direction:column;gap:12px;
+      animation:sheetIn .25s ease forwards
+    }
+    @keyframes sheetIn{from{transform:translateX(18px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .close-x{
+      width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);cursor:pointer;position:relative
+    }
+    .close-x::before,.close-x::after{
+      content:"";position:absolute;top:50%;left:50%;width:18px;height:2px;background:#fff;border-radius:999px
+    }
+    .close-x::before{transform:translate(-50%,-50%) rotate(45deg)}
+    .close-x::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+    .mobile-nav{display:flex;flex-direction:column;gap:8px;padding:10px 0}
+    .mobile-nav a{
+      padding:10px 12px;border-radius:12px;
+      background:transparent;border:1px solid rgba(255,255,255,.08);
+      font-weight:900;letter-spacing:.2px;font-size:.95rem;
+      transition:background .18s ease,transform .18s ease,border-color .18s ease;
+    }
+    .mobile-nav a:hover{background:rgba(255,255,255,.05);transform:translateX(2px);border-color:rgba(230,57,70,.22)}
+    .mobile-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:999px;font-weight:950;font-size:.92rem;
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;
+      cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+      user-select:none;white-space:nowrap
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      box-shadow:0 14px 35px rgba(230,57,70,.22)
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(230,57,70,.40)}
+    .btn.ghost:hover{background:rgba(230,57,70,.10);border-color:rgba(230,57,70,.60)}
+    .btn.block{width:100%}
+    .mobile-sheet small{color:rgba(255,255,255,.65)}
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero{
+      min-height:120vh;
+      padding-top:110px;
+      position:relative;
+      overflow:hidden;
+      display:flex;align-items:center;
+    }
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.03);
+      transition:opacity 1s ease,transform 6s ease}
+    .hero-slide.active{opacity:1;transform:scale(1)}
+    .hero::before{
+      content:"";position:absolute;inset:0;z-index:1;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.42) 80%,rgba(0,0,0,.28) 100%),
+        radial-gradient(900px 520px at 30% 35%, rgba(0,0,0,.34), transparent 60%);
+    }
+    .hero-content{position:relative;z-index:2;max-width:860px}
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;padding:8px 14px;border-radius:999px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.92);font-weight:950;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem
+    }
+    .hero h1{
+      margin-top:18px;
+      font-size:clamp(1.6rem,3.2vw,2.5rem);
+      line-height:1.12;
+      letter-spacing:-0.02em;
+      font-weight:950;
+      text-shadow:0 10px 30px rgba(0,0,0,.75);
+    }
+    .hero p{
+      margin-top:14px;
+      max-width:700px;
+      color:rgba(255,255,255,.88);
+      font-size:1.02rem;
+      text-shadow:0 8px 22px rgba(0,0,0,.55);
+    }
+    .hero-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    @media(max-width:900px){.hero-actions .btn{width:100%}}
+
+    .dots{
+      position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);
+      display:flex;gap:10px;padding:10px 12px;border-radius:999px;background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(10px)
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
+    .dot.active{background:#fff}
+
+    /* =========================
+       SECTION TITLES + REVEAL
+    ========================= */
+    .section-title{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+      flex-wrap:wrap;margin-bottom:38px
+    }
+    .section-title h2{
+      font-size:clamp(1.6rem,3.0vw,2.2rem);
+      letter-spacing:-0.02em;font-weight:950;line-height:1.1
+    }
+    .section-title h2::after{
+      content:"";display:block;width:56px;height:3px;background:var(--accent);
+      border-radius:999px;margin-top:12px
+    }
+    .section-sub{color:var(--muted);max-width:780px;margin-top:10px;font-size:1rem}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .hero-slide{transition:none}
+    }
+
+    /* =========================
+       ENGAGEMENT PATHS
+    ========================= */
+    .glass{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+    }
+
+    .paths{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:26px;
+      align-items:start;
+    }
+    @media(max-width:980px){.paths{grid-template-columns:1fr}}
+
+    .path-list{display:grid;gap:16px}
+    .path-card{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+      cursor:pointer;
+    }
+    .path-card::before{
+      content:"";position:absolute;inset:-2px;
+      background:radial-gradient(520px 240px at 18% 10%, rgba(230,57,70,.18), transparent 60%);
+      opacity:.75;pointer-events:none
+    }
+    .path-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(230,57,70,.24);
+      box-shadow:0 35px 90px rgba(0,0,0,.65);
+    }
+    .path-inner{position:relative;display:flex;align-items:flex-start;gap:14px}
+    .badge{
+      width:46px;height:46px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 55px rgba(0,0,0,.55);
+      flex:0 0 auto;
+    }
+    .badge span{font-weight:950;opacity:.95}
+    .path-title{
+      font-weight:950;letter-spacing:-.01em;font-size:1.05rem;
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap
+    }
+    .path-title small{
+      font-size:.78rem;
+      font-weight:950;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.70);
+      border:1px solid rgba(255,255,255,.10);
+      padding:4px 10px;border-radius:999px;
+    }
+    .path-desc{margin-top:8px;color:rgba(255,255,255,.84)}
+    .path-meta{
+      margin-top:12px;
+      display:flex;gap:10px;flex-wrap:wrap;
+      color:rgba(255,255,255,.72);
+      font-weight:850;font-size:.9rem;
+    }
+    .chip{
+      padding:8px 10px;border-radius:999px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    /* Right panel */
+    .panel{
+      padding:22px;
+      position:sticky;
+      top:110px;
+    }
+    @media(max-width:980px){.panel{position:relative;top:auto}}
+    .panel h3{font-size:1.15rem;font-weight:950;letter-spacing:-.01em}
+    .panel p{margin-top:10px;color:rgba(255,255,255,.84)}
+    .panel .cta{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+    .panel .cta .btn{flex:1 1 auto}
+    .panel .fine{margin-top:12px;color:rgba(255,255,255,.68);font-weight:850;font-size:.92rem}
+
+    /* Details (accordion-like, but premium, NOT nav accordions) */
+    .details{
+      margin-top:22px;
+      display:grid;
+      gap:12px;
+    }
+    .detail{
+      border-radius:18px;
+      padding:16px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .detail b{display:block;font-weight:950}
+    .detail span{display:block;margin-top:6px;color:rgba(255,255,255,.78)}
+
+    /* Form */
+    .form{
+      margin-top:18px;
+      display:grid;
+      gap:10px;
+    }
+    .field{
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:12px 12px;
+      display:flex;flex-direction:column;gap:6px;
+    }
+    .field label{font-size:.82rem;color:rgba(255,255,255,.72);font-weight:850}
+    .field input,.field select,.field textarea{
+      background:transparent;border:none;outline:none;color:#fff;
+      font-size:1rem;
+    }
+    textarea{min-height:92px;resize:vertical}
+
+    /* =========================
+       FOOTER (same as homepage)
+    ========================= */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,rgba(21,21,21,.7),rgba(0,0,0,.98));
+      padding:70px 0 28px;
+      margin-top:30px;
+    }
+    .footer-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr 1.1fr;gap:22px}
+    .footer-card{
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;padding:18px
+    }
+    .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .footer-brand img{width:40px;height:40px;border-radius:12px}
+    .footer-card h4{font-size:1rem;font-weight:950;margin-bottom:10px}
+    .footer-card p,.footer-card a,.footer-card li{color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.7}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-links a:hover{color:#fff}
+    .subscribe{display:flex;gap:10px;margin-top:10px}
+    .subscribe input{
+      flex:1;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;padding:12px 14px;color:#fff;outline:none
+    }
+    .subscribe button{
+      border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;padding:12px 16px;font-weight:950;color:#fff;cursor:pointer
+    }
+    .footer-bottom{
+      margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+      color:rgba(255,255,255,.65);font-size:.9rem
+    }
+    @media(max-width:980px){.footer-grid{grid-template-columns:1fr}}
+	
+	
+	 /* =========================
+     BACK TO TOP (FLOATING)
+  ========================= */
+  .to-top{
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    border: 1px solid rgba(230,57,70,.35);
+    background: rgba(230,57,70,.14);
+    box-shadow: 0 22px 70px rgba(230,57,70,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index: 8000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease, background .2s ease;
+  }
+  .to-top:hover{background: rgba(230,57,70,.22); transform: translateY(6px);}
+  .to-top.show{opacity: 1; transform: translateY(0);}
+  .to-top svg{width:22px;height:22px;fill:#fff;opacity:.95}
+  
+  #path {
+  background-color: #2c3e50;   /* dark background */
+  color: #ffffff;              /* white text */
+  border: 1px solid #2c3e50;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Style the dropdown options */
+#path option {
+  background-color: #ffffff;  /* dropdown list background */
+  color: #2c3e50;
+}
+
+/* Optional: when focused */
+#path:focus {
+  outline: none;
+  border-color: #3498db;
+}
+#path:invalid {
+  border: 2px solid red;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="top">
+  <div class="header-shell">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="Neema Global Foundation logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL FOUNDATION</div>
+          <span class="tag">HOPE AND MERCY IN ACTION</span>
+        </div>
+      </a>
+
+      <nav class="desktop" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About</a>
+        <a href="programs.html">Programs</a>
+       
+        <a class="active" href="get-involved.html">Get Involved</a>
+        <a href="donate.html">Donate</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="openSearch" aria-label="Search">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="hamburger" id="openMobile" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-box">
+    <div class="search-bar">
+      <input id="searchInput" type="search" placeholder="Search pages… (type to filter)" autocomplete="off" />
+      <div class="search-actions">
+        <button class="search-close" id="closeSearch" aria-label="Close search"></button>
+      </div>
+    </div>
+
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+  <div class="mobile-sheet" role="dialog" aria-label="Mobile menu">
+    <div class="mobile-top">
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL</div>
+          <span class="tag">HOPE AND MERCY</span>
+        </div>
+      </a>
+      <button class="close-x" id="closeMobile" aria-label="Close menu"></button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="programs.html">Programs</a>
+      
+      <a href="get-involved.html">Get Involved</a>
+      <a href="donate.html">Donate</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <div class="mobile-actions">
+      <a class="btn primary block" href="donate.html">Donate Now</a>
+      <button class="btn ghost block" type="button" id="openSearchFromMobile">Search</button>
+    </div>
+
+    <small>NGF • Kenya &amp; Global Partners</small>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-slide active" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/178A2119-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/178A1999-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/178A2249-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-40-scaled.jpg);"></div>
+    <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-18-1-scaled.jpg);"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="kicker">Get Involved</div>
+        <h1>Choose a path. Create impact.</h1>
+        <p>
+          Whether you give, volunteer, partner, sponsor a widow, or mobilize your organization—your support helps restore dignity,
+          strengthen livelihoods, and build resilient communities across Kenya.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="donate.html">Donate</a>
+          <a class="btn" href="#paths">Volunteer</a>
+          <a class="btn ghost" href="#form">Partner with us</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dots" id="heroDots" aria-label="Hero slider dots">
+      <div class="dot active" data-i="0"></div>
+      <div class="dot" data-i="1"></div>
+      <div class="dot" data-i="2"></div>
+      <div class="dot" data-i="3"></div>
+      <div class="dot" data-i="4"></div>
+    </div>
+  </section>
+
+  <!-- PATHS -->
+  <section id="paths">
+    <div class="container">
+
+      <div class="section-title reveal">
+        <div>
+          <h2>Clear engagement paths</h2>
+          <div class="section-sub">        
+          </div>
+        </div>
+      </div>
+
+      <div class="paths">
+
+        <!-- LEFT: cards -->
+        <div class="path-list">
+
+          <div class="path-card glass reveal" data-path="Donate">
+            <div class="path-inner">
+              <div class="badge"><span>01</span></div>
+              <div>
+                <div class="path-title">Donate <small>Fast impact</small></div>
+                <div class="path-desc">
+                  Support widows and vulnerable communities through direct giving to NGF programs.
+                </div>
+                <div class="path-meta">
+                  <div class="chip">One-time</div>
+                  <div class="chip">Monthly giving</div>
+                  <div class="chip">In-kind support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="path-card glass reveal" data-path="Volunteer">
+            <div class="path-inner">
+              <div class="badge"><span>02</span></div>
+              <div>
+                <div class="path-title">Volunteer <small>Hands-on</small></div>
+                <div class="path-desc">
+                  Join field work, mentorship, training days, community visits, or skills sessions.
+                </div>
+                <div class="path-meta">
+                  <div class="chip">Weekends</div>
+                  <div class="chip">Remote roles</div>
+                  <div class="chip">Community outreach</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="path-card glass reveal" data-path="Partner with us">
+            <div class="path-inner">
+              <div class="badge"><span>03</span></div>
+              <div>
+                <div class="path-title">Partner with us <small>Long-term</small></div>
+                <div class="path-desc">
+                  Collaborate as an institution, ministry, NGO, or community organization to scale impact.
+                </div>
+                <div class="path-meta">
+                  <div class="chip">Joint programs</div>
+                  <div class="chip">Training support</div>
+                  <div class="chip">Resource sharing</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="path-card glass reveal" data-path="Sponsor a widow">
+            <div class="path-inner">
+              <div class="badge"><span>04</span></div>
+              <div>
+                <div class="path-title">Sponsor a widow <small>Dignity</small></div>
+                <div class="path-desc">
+                  Support a widow’s livelihood journey through structured, accountable sponsorship.
+                </div>
+                <div class="path-meta">
+                  <div class="chip">Business starter support</div>
+                  <div class="chip">Skills + mentorship</div>
+                  <div class="chip">Follow-up updates</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="path-card glass reveal" data-path="Corporate sponsorship">
+            <div class="path-inner">
+              <div class="badge"><span>05</span></div>
+              <div>
+                <div class="path-title">Corporate sponsorship <small>CSR</small></div>
+                <div class="path-desc">
+                  Sponsor trainings, equipment, livelihood kits, or county-level programs as a corporate partner.
+                </div>
+                <div class="path-meta">
+                  <div class="chip">CSR partnerships</div>
+                  <div class="chip">Brand impact</div>
+                  <div class="chip">Co-funded projects</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: dynamic panel -->
+        <aside class="panel glass reveal" id="panel">
+          <h3 id="panelTitle">Select a path</h3>
+          <p id="panelText">
+            Click any engagement option on the left. We’ll show you what it involves, then you can submit your interest below.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" id="panelPrimary" href="donate.html">Donate</a>
+            <a class="btn" id="panelSecondary" href="#form">Submit interest</a>
+          </div>
+
+          <div class="details" id="panelDetails">
+            <div class="detail">
+              <b>Response time</b>
+              <span>We typically respond within 24–48 hours.</span>
+            </div>
+            <div class="detail">
+              <b>Accountability</b>
+              <span>Structured updates and clear outcomes for support provided.</span>
+            </div>
+          </div>
+
+          <div class="fine">
+            Prefer WhatsApp? Tap:
+            <a href="https://wa.me/254746028141" target="_blank" rel="noopener" style="text-decoration:underline;color:#fff;opacity:.9">0746 028 141</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- PARTNERSHIP & FUNDING OPPORTUNITY -->
+<section id="partnership">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <div>
+        <h2>Partnership and Funding Opportunity</h2>
+        <div class="section-sub">
+          Collaborate with NGF to scale high-impact solutions that strengthen dignity, resilience, and inclusive growth.
+        </div>
+      </div>
+    </div>
+
+    <div class="glass reveal" style="padding:22px">
+      <p style="color:rgba(255,255,255,.84)">
+        Neema Global Foundation invites donors and partners to collaborate in scaling high-
+        impact, community-led solutions that unlock the potential of widows, women, and youth
+        while strengthening climate resilience and inclusive growth.
+      </p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+        <a class="btn primary" href="#form" data-set-path="Partner with us">Become a Partner</a>
+<a class="btn ghost" href="#form" data-set-path="Corporate sponsorship">Fund a Program</a>
+      </div>
+
+      <div style="margin-top:12px;color:rgba(255,255,255,.70);font-weight:850;font-size:.92rem">      
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- FORM -->
+  <section id="form">
+    <div class="container">
+
+      <div class="section-title reveal">
+        <div>
+          <h2>Submit your interest</h2>
+          <div class="section-sub">
+            Fill in your details and choose the engagement path. We’ll get back to you with next steps.
+          </div>
+        </div>
+      </div>
+
+      <div class="glass reveal" style="padding:22px">
+        <form class="form" id="interestForm">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" required placeholder="Your name"
+  oninvalid="this.setCustomValidity('This field is required')"
+  oninput="this.setCustomValidity('')" />
+
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" required placeholder="you@email.com"
+  oninvalid="this.setCustomValidity('Please enter a valid email address')"
+  oninput="this.setCustomValidity('')" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" required placeholder="e.g. 2547xxxxxxxx"
+  pattern="254[0-9]{9}"
+  oninvalid="this.setCustomValidity('Phone must start with 254 and be 12 digits')"
+  oninput="this.setCustomValidity('')" />
+          </div>
+
+         <div class="field">
+  <label for="path">Engagement path</label>
+  <select id="path" required>
+    <option value="" disabled selected>Select…</option>
+    <option value="donate">Donate</option>
+    <option value="volunteer">Volunteer</option>
+    <option value="partner">Partner with us</option>
+    <option value="sponsor">Sponsor a widow</option>
+    <option value="corporate">Corporate sponsorship</option>
+  </select>
+</div>
+
+          <div class="field">
+            <label for="message">Tell us what you want to do</label>
+            <textarea id="message" required
+  placeholder="Share your idea..."
+  oninvalid="this.setCustomValidity('This field is required')"
+  oninput="this.setCustomValidity('')"></textarea>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+            <button class="btn primary" type="submit">Send Interest</button>
+            <a class="btn ghost" href="https://wa.me/254746028141" target="_blank" rel="noopener">WhatsApp Us</a>
+          </div>
+
+          <div style="margin-top:10px;color:rgba(255,255,255,.70);font-weight:850;font-size:.92rem">         
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF logo">
+          <div>
+            <div style="font-weight:950">Neema Global Foundation</div>
+            <div style="color:rgba(255,255,255,.70);font-size:.9rem;margin-top:2px">Hope and Mercy in Action</div>
+          </div>
+        </div>
+        <p>
+          Mission-driven programs supporting women, widows, and youth through dignified livelihoods,
+          skills development, and resilience-building across Kenya.
+        </p>
+      </div>
+
+      <div class="footer-card">
+        <h4>Quicklinks</h4>
+        <ul class="footer-links">
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>More</h4>
+        <ul class="footer-links">
+          <li><a href="media.html">Media</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>Newsletter</h4>
+        <p>Get updates, impact stories, and ways to support widows and vulnerable communities.</p>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Thanks! Newsletter form received.');">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Neema Global Foundation. All rights reserved.</div>
+      <div>
+        Designed with excellence by
+        <a href="https://wa.me/254707943284" target="_blank" rel="noopener" style="color:#fff;opacity:.9;text-decoration:underline">
+          Rosset Creatives
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12l7-7z"/></svg>
+</button>
+
+<script>
+  // helpers
+  const $ = (s, p=document) => p.querySelector(s);
+  const $$ = (s, p=document) => Array.from(p.querySelectorAll(s));
+
+  // year
+  $("#year").textContent = new Date().getFullYear();
+
+  // mobile menu
+  (function(){
+    const panel = $("#mobilePanel");
+    const open = $("#openMobile");
+    const close = $("#closeMobile");
+
+    function openM(){
+      panel.classList.add("active");
+      panel.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    }
+    function closeM(){
+      panel.classList.remove("active");
+      panel.setAttribute("aria-hidden","true");
+      document.body.style.overflow="";
+    }
+    open?.addEventListener("click", openM);
+    close?.addEventListener("click", closeM);
+    panel?.addEventListener("click", (e)=>{ if(e.target === panel) closeM(); });
+
+    $("#openSearchFromMobile")?.addEventListener("click", ()=>{
+      closeM();
+      setTimeout(()=> openSearch(), 50);
+    });
+  })();
+
+  // premium search (keep SAME list across pages)
+  const searchOverlay = $("#searchOverlay");
+  const searchInput = $("#searchInput");
+  const searchResults = $("#searchResults");
+
+  const pages = [
+    {title:"Home", desc:"Hero, mission snapshot, map preview, testimonials, founder overview.", href:"index.html"},
+    {title:"About", desc:"Why we started, founder story, vision & mission, leadership.", href:"about.html"},
+    {title:"Programs", desc:"Program objectives and expected outcomes.", href:"programs.html"},
+    {title:"Impact", desc:"County-level results, stories, measurable outcomes.", href:"impact.html"},
+    {title:"Get Involved", desc:"Donate, volunteer, partner, sponsor a widow, corporate sponsorship.", href:"get-involved.html"},
+    {title:"Donate", desc:"Support widows and vulnerable communities.", href:"donate.html"},
+    {title:"Media", desc:"Short & long documentaries, photos, updates.", href:"media.html"},
+    {title:"Contact", desc:"Reach us for partnerships and inquiries.", href:"contact.html"},
+    {title:"FAQ", desc:"Answers to common questions.", href:"faq.html"},
+  ];
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+  function renderResults(q){
+    const query = (q||"").trim().toLowerCase();
+    if(!query){
+      searchResults.innerHTML = `<div class="no-results">Type to search pages…</div>`;
+      return;
+    }
+    const hits = pages.filter(p =>
+      p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
+    );
+    if(!hits.length){
+      searchResults.innerHTML = `<div class="no-results">No results for “${escapeHtml(q)}”.</div>`;
+      return;
+    }
+    searchResults.innerHTML = hits.map(p => `
+      <a class="result-item" href="${p.href}">
+        <strong>${escapeHtml(p.title)}</strong>
+        <span>${escapeHtml(p.desc)}</span>
+      </a>
+    `).join("");
+  }
+  function openSearch(){
+    searchOverlay.classList.add("active");
+    searchOverlay.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+    searchInput.value = "";
+    renderResults("");
+    setTimeout(()=>searchInput.focus(), 50);
+  }
+  function closeSearch(){
+    searchOverlay.classList.remove("active");
+    searchOverlay.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+  }
+
+  $("#openSearch")?.addEventListener("click", openSearch);
+  $("#closeSearch")?.addEventListener("click", closeSearch);
+  searchOverlay?.addEventListener("click", (e)=>{ if(e.target === searchOverlay) closeSearch(); });
+  searchInput?.addEventListener("input", (e)=> renderResults(e.target.value));
+
+  document.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape"){
+      if(searchOverlay.classList.contains("active")) closeSearch();
+      if($("#mobilePanel")?.classList.contains("active")) $("#closeMobile")?.click();
+    }
+  });
+
+  // hero slider
+  (function(){
+    const slides = $$(".hero-slide");
+    const dots = $$("#heroDots .dot");
+    let i = 0, timer;
+
+    function setSlide(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, idx)=> s.classList.toggle("active", idx===i));
+      dots.forEach((d, idx)=> d.classList.toggle("active", idx===i));
+    }
+    function start(){
+      stop();
+      timer = setInterval(()=> setSlide(i+1), 5200);
+    }
+    function stop(){ if(timer) clearInterval(timer); }
+
+    dots.forEach(d => d.addEventListener("click", ()=> { setSlide(+d.dataset.i); start(); }));
+    setSlide(0); start();
+  })();
+
+  // dynamic side panel content
+  (function(){
+    const panelTitle = $("#panelTitle");
+    const panelText = $("#panelText");
+    const primary = $("#panelPrimary");
+    const secondary = $("#panelSecondary");
+    const select = $("#path");
+    const msg = $("#message");
+
+    const content = {
+      "Donate": {
+        title:"Donate",
+        text:"Give to fuel livelihoods, skills training, resilience programs, and direct support for widows and vulnerable households.",
+        primaryText:"Donate",
+        primaryHref:"donate.html",
+        hint:"Share whether you prefer one-time or monthly giving."
+      },
+      "Volunteer": {
+        title:"Volunteer",
+        text:"Support field outreach, mentorship, training sessions, admin support, or community mobilization—on-site or remote.",
+        primaryText:"Volunteer interest",
+        primaryHref:"#form",
+        hint:"Tell us your skills + availability."
+      },
+      "Partner with us": {
+        title:"Partner with us",
+        text:"Work with NGF as an institution, ministry, NGO, or community group to scale impact through joint programming and resource sharing.",
+        primaryText:"Submit partnership",
+        primaryHref:"#form",
+        hint:"Mention your organization + what you want to partner on."
+      },
+      "Sponsor a widow": {
+        title:"Sponsor a widow",
+        text:"Support a widow’s dignity journey with structured sponsorship—enterprise support, skills, mentorship, and follow-up updates.",
+        primaryText:"Sponsor inquiry",
+        primaryHref:"#form",
+        hint:"State how you’d like to sponsor (business, skills, kit, monthly)."
+      },
+      "Corporate sponsorship": {
+        title:"Corporate sponsorship",
+        text:"CSR partnerships for trainings, equipment, livelihood kits, or county programs—co-funded and measurable with accountability.",
+        primaryText:"Corporate inquiry",
+        primaryHref:"#form",
+        hint:"Include your company name + CSR goals."
+      }
+    };
+
+    function setPanel(key){
+      const c = content[key] || null;
+      if(!c) return;
+
+      panelTitle.textContent = c.title;
+      panelText.textContent = c.text;
+      primary.textContent = c.primaryText;
+      primary.href = c.primaryHref;
+
+      // auto-fill form
+      select.value = key;
+      msg.value = msg.value?.trim() ? msg.value : c.hint;
+      secondary.href = "#form";
+      window.location.hash = window.location.hash; // no-op (keeps smooth scroll settings)
+    }
+
+    $$(".path-card").forEach(card=>{
+      card.addEventListener("click", ()=> setPanel(card.dataset.path));
+    });
+  })();
+
+ 
+
+  // reveal on scroll
+  (function(){
+    const els = $$(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("in");
+      });
+    }, {threshold:.12});
+    els.forEach(el=> io.observe(el));
+  })();
+  // Auto-select form path from buttons
+(function(){
+  const select = document.getElementById("path");
+  const msg = document.getElementById("message");
+
+  document.querySelectorAll('[data-set-path]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const val = btn.getAttribute('data-set-path');
+      if(select) select.value = val;
+      if(msg && !msg.value.trim()){
+        msg.value = "Tell us how you’d like to partner/fund and the kind of support you can provide.";
+      }
+    });
+  });
+})();
+
+
+const form = document.getElementById("interestForm");
+
+const fields = {
+  name: document.getElementById("name"),
+  email: document.getElementById("email"),
+  phone: document.getElementById("phone"),
+  path: document.getElementById("path"),
+  message: document.getElementById("message")
+};
+
+function validateField(field, type) {
+  const value = field.value.trim();
+
+  if (!value) {
+    field.setCustomValidity("This field is required");
+    return false;
+  }
+
+  if (type === "email" && !value.includes("@")) {
+    field.setCustomValidity("Enter a valid email");
+    return false;
+  }
+
+  if (type === "phone" && !/^254\d{9}$/.test(value)) {
+    field.setCustomValidity("Must start with 254 and be 12 digits");
+    return false;
+  }
+
+  field.setCustomValidity("");
+  return true;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const isValid =
+    validateField(fields.name) &&
+    validateField(fields.email, "email") &&
+    validateField(fields.phone, "phone") &&
+    validateField(fields.path) &&
+    validateField(fields.message);
+
+  if (!isValid) {
+    alert("Please fix the errors before submitting.");
+    return;
+  }
+
+  const data = {
+    name: fields.name.value,
+    email: fields.email.value,
+    phone: fields.phone.value,
+    path: fields.path.value,
+    message: fields.message.value
+  };
+
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbzOx9SSXbV85lDx2RdYh10ENitdGQ15e8O_OaSRFMI5A05JPK42xHS3CrCykaW5_wXUpA/exec", {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    form.reset();
+    alert("✅ Submitted successfully!");
+  } catch (err) {
+    alert("❌ Error sending message");
+  }
+});
+</script>
+
+</body>
+</html>

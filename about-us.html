@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | Neema Global Foundation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+ <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png">
+
+<style>
+  /* =========================
+     RESET + THEME
+  ========================= */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -10%, rgba(230,57,70,.18), transparent 55%),
+      radial-gradient(900px 520px at 92% 6%, rgba(230,57,70,.10), transparent 55%),
+      #0c0c0c;
+    color:#fff;
+    line-height:1.65;
+    overflow-x:hidden;
+    padding-top:86px; /* fixed header space */
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  button,input{font:inherit}
+  ::selection{background:rgba(233,69,96,.35)}
+
+  :root{
+    --bg:#0c0c0c;
+    --panel:rgba(255,255,255,.06);
+    --panel2:rgba(255,255,255,.09);
+    --stroke:rgba(255,255,255,.10);
+    --stroke2:rgba(255,255,255,.14);
+    --text:#fff;
+    --muted:rgba(255,255,255,.74);
+    --muted2:rgba(255,255,255,.58);
+    --accent:#e63946;
+    --accent2:#ff4d57;
+    --container:1200px;
+    --shadow:0 25px 70px rgba(0,0,0,.55);
+
+    --sec:110px;
+    --sec-m:78px;
+  }
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 22px}
+  section{padding:var(--sec) 0}
+  @media(max-width:900px){section{padding:var(--sec-m) 0}}
+
+  /* =========================
+     HEADER (NO ACCORDIONS)
+  ========================= */
+  header#top{
+    position:fixed;top:0;left:0;width:100%;
+    height:86px;z-index:5000;
+    background:rgba(0,0,0,.88);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(10px);
+  }
+  .header-shell{width:100%;padding:0 18px}
+  .header-inner{
+    height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  }
+
+  /* brand extreme left */
+  .brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 0 auto}
+  .brand img{width:40px;height:40px;border-radius:10px}
+  .brand .name{font-weight:950;letter-spacing:.2px;line-height:1.05;white-space:nowrap}
+  .brand .tag{display:block;font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.1;white-space:nowrap}
+
+  /* nav centered, clean */
+  nav.desktop{
+    flex:1 1 auto;
+    display:flex;align-items:center;justify-content:center;gap:18px;
+    white-space:nowrap;min-width:0;
+  }
+  nav.desktop a{
+    font-size:.92rem;color:rgba(255,255,255,.86);
+    font-weight:800;letter-spacing:.2px;
+    padding:8px 8px;border-radius:10px;
+    transition:background .18s ease,color .18s ease, transform .18s ease;
+  }
+  nav.desktop a:hover{color:#fff;background:rgba(255,255,255,.06);transform:translateY(-1px)}
+  nav.desktop a.active{
+    color:#fff;
+    background:rgba(230,57,70,.12);
+    border:1px solid rgba(230,57,70,.25);
+  }
+
+  /* actions extreme right */
+  .header-actions{flex:0 0 auto;display:flex;align-items:center;gap:12px}
+
+  .icon-btn{
+    width:42px;height:42px;border-radius:999px;border:1px solid var(--stroke);
+    background:rgba(255,255,255,.06);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease;
+  }
+  .icon-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+  .search-icon{
+    width:18px;height:18px;border:2px solid #fff;border-radius:50%;position:relative;opacity:.95
+  }
+  .search-icon::after{
+    content:"";position:absolute;width:10px;height:2px;background:#fff;right:-8px;bottom:-2px;
+    transform:rotate(45deg);border-radius:999px
+  }
+
+  /* Porsche hamburger */
+  .hamburger{
+    display:none;width:44px;height:44px;border-radius:999px;border:1px solid var(--stroke);
+    background:rgba(255,255,255,.06);
+    cursor:pointer;
+    align-items:center;justify-content:center;flex-direction:column;gap:6px;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .hamburger::before{
+    content:"";
+    position:absolute;inset:-2px;
+    background:radial-gradient(240px 140px at 20% 20%, rgba(255,255,255,.14), transparent 55%);
+    opacity:.0;transition:opacity .25s ease;
+  }
+  .hamburger:hover::before{opacity:1}
+  .hamburger:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+  .hamburger span{
+    width:20px;height:2px;background:#fff;border-radius:999px;opacity:.95;
+    box-shadow:0 0 0 0 rgba(230,57,70,0);
+    transition:transform .2s ease, width .2s ease;
+  }
+  .hamburger:hover span:nth-child(1){width:22px}
+  .hamburger:hover span:nth-child(3){width:16px}
+
+  @media(max-width:980px){
+    nav.desktop{display:none}
+    .hamburger{display:flex}
+    .header-shell{padding:0 14px}
+  }
+  @media(max-width:420px){
+    .brand .tag{display:block} /* keep tagline */
+  }
+
+  /* =========================
+     MOBILE MENU (ULTRA LUX)
+  ========================= */
+  .mobile-panel{
+    position:fixed;inset:0;z-index:6000;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(14px);
+    display:none;
+  }
+  .mobile-panel.active{display:block}
+  .mobile-sheet{
+    position:absolute;top:0;right:0;height:100%;
+    width:min(380px,90vw);
+    background:linear-gradient(180deg,rgba(18,18,18,.98),rgba(0,0,0,.98));
+    border-left:1px solid rgba(255,255,255,.08);
+    box-shadow:-30px 0 90px rgba(0,0,0,.65);
+    padding:16px;
+    display:flex;flex-direction:column;gap:12px;
+    animation:sheetIn .25s ease forwards;
+  }
+  @keyframes sheetIn{from{transform:translateX(18px);opacity:0}to{transform:translateX(0);opacity:1}}
+  .mobile-top{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)
+  }
+  .close-x{
+    width:38px;height:38px;border-radius:999px;border:1px solid var(--stroke);
+    background:rgba(255,255,255,.06);cursor:pointer;position:relative
+  }
+  .close-x::before,.close-x::after{
+    content:"";position:absolute;top:50%;left:50%;
+    width:18px;height:2px;background:#fff;border-radius:999px
+  }
+  .close-x::before{transform:translate(-50%,-50%) rotate(45deg)}
+  .close-x::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+  .mobile-nav{display:flex;flex-direction:column;gap:8px;padding:10px 0}
+  .mobile-nav a{
+    padding:10px 12px;border-radius:12px;
+    background:transparent;border:1px solid rgba(255,255,255,.08);
+    font-size:.95rem;font-weight:900;
+    transition:background .18s ease, transform .18s ease, border-color .18s ease;
+  }
+  .mobile-nav a:hover{background:rgba(255,255,255,.05);transform:translateX(2px);border-color:rgba(230,57,70,.22)}
+  .mobile-foot{
+    margin-top:auto;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:rgba(255,255,255,.65);
+    font-size:.85rem;
+    line-height:1.6;
+  }
+
+  /* =========================
+     SEARCH OVERLAY (REALTIME)
+  ========================= */
+  .search-overlay{
+    position:fixed;inset:0;z-index:99999;
+    background:rgba(0,0,0,.86);
+    backdrop-filter:blur(14px);
+    display:none;
+    padding:92px 0 40px;
+    pointer-events:auto;
+  }
+  .search-overlay.active{display:block}
+  .search-box{max-width:820px;margin:0 auto;padding:0 22px}
+  .search-bar{
+    display:flex;align-items:center;gap:12px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:999px;
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+  }
+  .search-bar input{
+    width:100%;
+    background:transparent;border:none;outline:none;color:#fff;font-size:1rem;
+  }
+  .search-results{
+    margin-top:16px;
+    background:rgba(21,21,21,.85);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .result-item{
+    padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:block;
+  }
+  .result-item:last-child{border-bottom:none}
+  .result-item strong{display:block;font-size:.98rem;font-weight:900}
+  .result-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:4px}
+  .no-results{padding:18px 16px;color:rgba(255,255,255,.70)}
+
+  /* =========================
+     HERO SLIDER (5 SLIDES)
+     - constant text (no changing)
+  ========================= */
+  .hero{
+    min-height:120vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .hero-slide{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    opacity:0;
+    transform:scale(1.03);
+    transition:opacity 1s ease, transform 6s ease;
+  }
+  .hero-slide.active{opacity:1;transform:scale(1)}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.70) 45%,rgba(0,0,0,.45) 75%,rgba(0,0,0,.28) 100%),
+      radial-gradient(900px 520px at 30% 35%, rgba(0,0,0,.35), transparent 60%),
+      radial-gradient(900px 520px at 70% 60%, rgba(0,0,0,.22), transparent 65%);
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    max-width:860px;
+    padding:10px 0;
+  }
+  .kicker{
+    display:inline-flex;gap:10px;align-items:center;
+    padding:8px 14px;border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
+    color:rgba(255,255,255,.92);
+    font-weight:950;letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;
+  }
+  .hero h1{
+    margin-top:24px;
+    font-size:clamp(2.1rem,4.6vw,3.6rem);
+    line-height:1.08;
+    letter-spacing:-0.03em;
+    font-weight:950;
+    text-shadow:0 10px 30px rgba(0,0,0,.75);
+  }
+  .hero p{
+    margin-top:16px;
+    max-width:660px;
+    color:rgba(255,255,255,.90);
+    font-size:1.04rem;
+    text-shadow:0 8px 22px rgba(0,0,0,.55);
+  }
+  .hero-actions{
+    margin-top:26px;
+    display:flex;gap:12px;flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:12px 18px;border-radius:999px;
+    font-weight:900;font-size:.92rem;
+    border:1px solid var(--stroke);
+    background:rgba(255,255,255,.06);
+    color:#fff;cursor:pointer;
+    transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+    user-select:none;white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+  .btn.primary{
+    border:none;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 14px 35px rgba(230,57,70,.22);
+  }
+  .btn.secondary{background:transparent;border:2px solid var(--accent)}
+  .btn.secondary:hover{background:rgba(230,57,70,.12);box-shadow:0 12px 30px rgba(230,57,70,.18)}
+
+  .dots{
+    position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);
+    display:flex;gap:10px;padding:10px 12px;border-radius:999px;
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(10px);
+  }
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
+  .dot.active{background:#fff}
+
+  @media(max-width:900px){
+    .hero{min-height:86vh}
+    .hero-actions .btn{width:100%}
+  }
+
+  /* =========================
+     REVEAL ANIMATIONS
+  ========================= */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .75s ease,transform .75s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+    .hero-slide{transition:none !important}
+  }
+
+  /* =========================
+     SECTION HEAD
+  ========================= */
+  .section-title{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+    flex-wrap:wrap;margin-bottom:44px;
+  }
+  .section-title h2{
+    font-size:clamp(1.9rem,4vw,2.6rem);
+    letter-spacing:-0.02em;
+    font-weight:950;
+    line-height:1.1;
+  }
+  .section-title h2::after{
+    content:"";display:block;width:56px;height:3px;background:var(--accent);
+    border-radius:999px;margin-top:12px;
+  }
+  .section-sub{color:var(--muted);max-width:720px;margin-top:12px;font-size:1rem}
+
+  /* =========================
+     ABOUT GRID
+  ========================= */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:34px;
+    align-items:start;
+  }
+  .glass{
+    background:rgba(21,21,21,.78);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:20px;
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    position:relative;
+    overflow:hidden;
+  }
+  .glass::before{
+    content:"";
+    position:absolute;inset:-2px;
+    background:radial-gradient(520px 240px at 18% 15%, rgba(230,57,70,.22), transparent 62%);
+    opacity:.6;pointer-events:none;
+  }
+  .glass > *{position:relative}
+  .about-card h3{font-size:1.1rem;font-weight:950;margin-bottom:10px}
+  .about-card p{color:var(--muted);margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{
+    padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.06);font-weight:900;font-size:.86rem;
+  }
+  .side-stack{display:grid;gap:14px}
+  .mini{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+    padding:16px;
+  }
+  .mini .k{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.80);font-weight:950}
+  .mini .v{margin-top:8px;font-weight:900;color:rgba(255,255,255,.92)}
+  .mini .s{margin-top:8px;color:var(--muted);font-size:.92rem}
+
+  @media(max-width:900px){
+    .about-grid{grid-template-columns:1fr}
+  }
+
+  /* =========================
+     PROBLEM STATEMENT
+  ========================= */
+  .problem p{color:rgba(255,255,255,.78);margin-top:12px}
+  .callout{
+    margin-top:14px;
+    padding:16px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.06);
+  }
+  .callout .ref{
+    color:var(--accent);
+    font-weight:950;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    margin-bottom:10px;
+  }
+
+  /* =========================
+     LEADERSHIP
+  ========================= */
+  .lead-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:34px;
+    align-items:start;
+  }
+  .lead-hero{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:18px;
+    align-items:center;
+  }
+  .lead-photo{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.10);
+    background:#000;
+    box-shadow:0 22px 70px rgba(0,0,0,.55);
+    position:relative;
+    min-height:320px;
+  }
+  .lead-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:.95;
+  }
+  .lead-photo::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.28));
+  }
+  .lead-copy h3{font-size:1.2rem;font-weight:950;margin-bottom:6px}
+  .lead-copy .role{color:rgba(255,255,255,.80);font-weight:900;margin-bottom:10px}
+  .lead-copy p{color:var(--muted);margin-bottom:12px}
+
+  .leader-list{
+    display:grid;
+    gap:12px;
+  }
+  .leader-item{
+    display:grid;
+    grid-template-columns:54px 1fr;
+    gap:12px;
+    align-items:start;
+    padding:14px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .leader-item:hover{transform:translateY(-2px);background:rgba(255,255,255,.06);border-color:rgba(230,57,70,.20)}
+  .avatar{
+    width:54px;height:54px;border-radius:16px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(230,57,70,.14);
+    border:1px solid rgba(230,57,70,.28);
+    font-weight:950;letter-spacing:.08em;
+  }
+  .leader-item h4{font-weight:950;margin-bottom:4px}
+  .leader-item .t{color:rgba(255,255,255,.78);font-weight:900;font-size:.9rem}
+  .leader-item .b{margin-top:8px;color:var(--muted);font-size:.92rem}
+
+  @media(max-width:980px){
+    .lead-grid{grid-template-columns:1fr}
+    .lead-hero{grid-template-columns:1fr;gap:14px}
+    .lead-photo{min-height:360px}
+  }
+
+  /* =========================
+     BACK TO TOP (FLOATING)
+  ========================= */
+  .to-top{
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    border: 1px solid rgba(230,57,70,.35);
+    background: rgba(230,57,70,.14);
+    box-shadow: 0 22px 70px rgba(230,57,70,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index: 8000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease, background .2s ease;
+  }
+  .to-top:hover{background: rgba(230,57,70,.22); transform: translateY(6px);}
+  .to-top.show{opacity: 1; transform: translateY(0);}
+  .to-top svg{width:22px;height:22px;fill:#fff;opacity:.95}
+
+  /* =========================
+     FOOTER
+  ========================= */
+  footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(180deg,rgba(21,21,21,.7),rgba(0,0,0,.98));
+    padding:70px 0 28px;
+    margin-top:30px;
+  }
+  .footer-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr 1.1fr;gap:22px}
+  .footer-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:18px;
+  }
+  .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .footer-brand img{width:40px;height:40px;border-radius:12px}
+  .footer-card h4{font-size:1rem;font-weight:950;margin-bottom:10px}
+  .footer-card p,.footer-card a,.footer-card li{color:rgba(255,255,255,.78);font-size:.92rem;line-height:1.7}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-links a:hover{color:#fff}
+  .subscribe{display:flex;gap:10px;margin-top:10px}
+  .subscribe input{
+    flex:1;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.10);
+    border-radius:999px;padding:12px 14px;color:#fff;outline:none
+  }
+  .subscribe button{
+    border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+    border-radius:999px;padding:12px 16px;font-weight:950;color:#fff;cursor:pointer
+  }
+  .footer-bottom{
+    margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    color:rgba(255,255,255,.65);font-size:.9rem
+  }
+  .credit a{
+    color:rgba(255,255,255,.78);
+    border-bottom:1px dashed rgba(255,255,255,.22);
+  }
+  .credit a:hover{color:#fff;border-bottom-color:rgba(230,57,70,.55)}
+  @media(max-width:980px){.footer-grid{grid-template-columns:1fr}}
+  
+  /* =========================
+       MOBILE MENU
+    ========================= */
+    .mobile-panel{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);
+      backdrop-filter:blur(16px);display:none;z-index:6000
+    }
+    .mobile-panel.active{display:block}
+    .mobile-sheet{
+      position:absolute;top:0;right:0;height:100%;width:min(370px,92vw);
+      background:linear-gradient(180deg,rgba(18,18,18,.98),rgba(0,0,0,.98));
+      border-left:1px solid rgba(255,255,255,.08);
+      box-shadow:-30px 0 90px rgba(0,0,0,.65);
+      padding:16px;display:flex;flex-direction:column;gap:12px;
+      animation:sheetIn .25s ease forwards
+    }
+    @keyframes sheetIn{from{transform:translateX(18px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .close-x{
+      width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);cursor:pointer;position:relative
+    }
+    .close-x::before,.close-x::after{
+      content:"";position:absolute;top:50%;left:50%;width:18px;height:2px;background:#fff;border-radius:999px
+    }
+    .close-x::before{transform:translate(-50%,-50%) rotate(45deg)}
+    .close-x::after{transform:translate(-50%,-50%) rotate(-45deg)}
+
+    .mobile-nav{display:flex;flex-direction:column;gap:8px;padding:10px 0}
+    .mobile-nav a{
+      padding:10px 12px;border-radius:12px;
+      background:transparent;border:1px solid rgba(255,255,255,.08);
+      font-weight:900;letter-spacing:.2px;font-size:.95rem;
+      transition:background .18s ease,transform .18s ease,border-color .18s ease;
+    }
+    .mobile-nav a:hover{background:rgba(255,255,255,.05);transform:translateX(2px);border-color:rgba(230,57,70,.22)}
+    .mobile-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:999px;font-weight:950;font-size:.92rem;
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;
+      cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+      user-select:none;white-space:nowrap
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));
+      box-shadow:0 14px 35px rgba(230,57,70,.22)
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(230,57,70,.40)}
+    .btn.ghost:hover{background:rgba(230,57,70,.10);border-color:rgba(230,57,70,.60)}
+    .mobile-sheet small{color:rgba(255,255,255,.65)}
+	
+	/* Fix guiding principle width */
+.guiding-card{
+  max-width:1200px;
+  margin:24px auto 0;
+}
+
+/* Guiding Principle premium styling */
+
+.guiding-verse{
+  position:relative;
+  font-size:1.05rem;
+  line-height:1.7;
+  font-weight:850;
+  color:rgba(255,255,255,.9);
+  padding:18px 20px 18px 28px;
+  border-left:3px solid var(--accent);
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+}
+
+.guiding-verse::before{
+  content:"“";
+  position:absolute;
+  left:10px;
+  top:-8px;
+  font-size:2.2rem;
+  color:var(--accent);
+  opacity:.7;
+  font-weight:900;
+}
+
+.guiding-verse::after{
+  content:"”";
+  position:absolute;
+  right:12px;
+  bottom:-10px;
+  font-size:2.2rem;
+  color:var(--accent);
+  opacity:.7;
+  font-weight:900;
+}
+/* PROFILE MODAL */
+.profile-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+
+.profile-modal.active{
+  display:flex;
+}
+
+.profile-content{
+  width:min(800px,92%);
+  max-height:85vh;
+  background:linear-gradient(180deg,#121212,#000);
+  border-radius:20px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 40px 100px rgba(0,0,0,.7);
+  position:relative;
+}
+
+.profile-content h2{
+  font-weight:950;
+  margin-bottom:14px;
+}
+
+.profile-scroll{
+  overflow-y:auto;
+  max-height:60vh;
+  padding-right:8px;
+  color:rgba(255,255,255,.8);
+  line-height:1.7;
+}
+
+/* CLOSE BUTTON */
+.close-profile{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+/* GRID */
+.leaders-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+
+/* CARD */
+.leader-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all .3s ease;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.leader-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(230,57,70,.35);
+}
+
+/* IMAGE */
+.leader-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+/* CONTENT */
+.leader-info{
+  padding:18px;
+}
+
+.leader-info h4{
+  font-weight:950;
+  margin-bottom:6px;
+}
+
+.leader-info span{
+  display:block;
+  color:rgba(255,255,255,.7);
+  font-weight:800;
+  font-size:.9rem;
+  margin-bottom:10px;
+}
+
+.leader-info p{
+  color:rgba(255,255,255,.65);
+  font-size:.9rem;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+/* FEATURED LEADERS */
+.featured-leaders{
+  display:grid;
+  gap:30px;
+  margin-bottom:40px;
+}
+
+.featured-card{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:26px;
+  align-items:center;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  overflow:hidden;
+  padding:18px;
+  transition:all .3s ease;
+}
+
+.featured-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(230,57,70,.35);
+}
+
+/* IMAGE */
+.featured-card img{
+  width:100%;
+  height:100%;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+/* TEXT */
+.featured-info h3{
+  font-size:1.3rem;
+  font-weight:950;
+  margin-bottom:6px;
+}
+
+.featured-info span{
+  display:block;
+  color:rgba(255,255,255,.75);
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.featured-info p{
+  color:rgba(255,255,255,.7);
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+/* MOBILE FIX */
+@media(max-width:900px){
+  .featured-card{
+    grid-template-columns:1fr;
+  }
+}
+.profile-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+
+.profile-modal.active{display:flex}
+
+.profile-content{
+  width:min(800px,92%);
+  max-height:85vh;
+  background:#111;
+  border-radius:20px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  position:relative;
+}
+
+.profile-content h2{
+  font-size:1.4rem;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.profile-scroll{
+  max-height:60vh;
+  overflow:auto;
+  padding-right:6px;
+  color:rgba(255,255,255,.8);
+  line-height:1.7;
+}
+
+.close-profile{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  cursor:pointer;
+}
+.full-bio{
+  align-items:flex-start;
+}
+
+.bio-text{
+  margin-top:10px;
+}
+
+.bio-text p{
+  margin-bottom:14px;
+  color:rgba(255,255,255,.78);
+  line-height:1.7;
+  font-size:.95rem;
+}
+
+.bio-list{
+  margin:10px 0 16px 18px;
+  color:rgba(255,255,255,.8);
+}
+
+.bio-list li{
+  margin-bottom:6px;
+  list-style:disc;
+}
+
+/* spacing upgrade */
+.full-bio .featured-info{
+  padding-right:10px;
+}
+
+/* better reading width */
+.full-bio .featured-info{
+  max-width:700px;
+}
+
+.leader-info p{
+  color:rgba(255,255,255,.72);
+  font-size:.92rem;
+  line-height:1.6;
+  margin-top:8px;
+}
+
+/* make cards feel more premium */
+.leader-card{
+  backdrop-filter:blur(10px);
+}
+
+.leader-card:hover{
+  transform:translateY(-6px) scale(1.01);
+}
+.leader-info span{
+  position:relative;
+  padding-bottom:8px;
+  display:inline-block;
+}
+
+.leader-info span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:30px;
+  height:2px;
+  background:var(--accent);
+  border-radius:999px;
+}
+.featured-card{
+  grid-template-columns:420px 1fr; /* BIGGER IMAGE */
+  gap:32px;
+  padding:22px;
+}
+
+/* Bigger, stronger image presence */
+.featured-card img{
+  width:100%;
+  height:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+/* Make it feel premium */
+.full-bio img{
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+.featured-card img{
+  transition:transform .4s ease;
+}
+
+.featured-card:hover img{
+  transform:scale(1.03);
+}
+/* Featured leaders layout */
+.featured-card.full-bio {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+/* Image smaller + clean */
+.featured-card.full-bio img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Title area */
+.featured-info h3 {
+  margin-bottom: 5px;
+}
+
+.featured-info span {
+  display: block;
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+/* TEXT MAGIC (newspaper style) */
+.bio-text {
+  column-count: 2;   /* 👈 splits into columns */
+  column-gap: 30px;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+/* Paragraph spacing */
+.bio-text p {
+  margin-bottom: 14px;
+}
+/* Leaders grid */
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 👈 2x2 */
+  gap: 30px;
+}
+
+/* Card styling */
+.leader-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.leader-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Image */
+.leader-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* Text */
+.leader-info h4 {
+  margin-bottom: 5px;
+}
+
+.leader-info span {
+  color: #aaa;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Make text clean */
+.leader-info p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .featured-card.full-bio {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-text {
+    column-count: 1;
+  }
+
+  .leaders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+object-fit: cover;
+
+.featured-card.full-bio img,
+.leader-card img {
+  width: 100%;
+  height: auto;          /* 👈 key fix */
+  max-height: 360px;
+  object-fit: contain;   /* 👈 prevents cutting */
+  border-radius: 14px;
+  background: #111;      /* fills empty space nicely */
+}
+
+.featured-card.full-bio img,
+.leader-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: top; /* 👈 keeps faces visible */
+  border-radius: 14px;
+}
+/* GLOBAL TYPOGRAPHY (premium feel) */
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  line-height: 1.75;
+  letter-spacing: 0.2px;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.5px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  color: #d6d6d6;
+  line-height: 1.8;
+}
+
+/* Subtitles */
+.featured-info span,
+.leader-info span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #9aa0a6;
+}
+.featured-card.full-bio {
+  display: block; /* 👈 IMPORTANT: removes side layout */
+  padding: 20px;
+  margin-bottom: 60px;
+}
+
+.featured-card.full-bio img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+/* Title styling */
+.featured-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.featured-info span {
+  display: block;
+  margin-bottom: 20px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* TEXT = clean article style */
+.bio-text p {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  color: #ddd;
+  text-align: justify; /* 👈 newspaper feel */
+}
+.bio-text {
+  column-count: 3;
+  column-gap: 35px;
+  line-height: 1.9;
+}
+
+/* makes it responsive + clean */
+.bio-text p {
+  margin-bottom: 16px;
+  break-inside: avoid;
+  color: #ddd;
+}
+@media (max-width: 1024px) {
+  .bio-text {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-text {
+    column-count: 1;
+  }
+}
+.bio-text p {
+  break-inside: avoid;
+}
+.bio-text {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  line-height: 1.9;
+}
+
+@media (max-width: 1024px) {
+  .bio-text {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-text {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bio-text p {
+  background: rgba(255,255,255,0.03);
+  padding: 12px;
+  border-radius: 10px;
+}
+.featured-card.full-bio {
+  margin-bottom: 70px;
+}
+
+/* TOP SECTION: image + intro text */
+.bio-top {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* image */
+.bio-top img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px;
+}
+
+/* intro text */
+.bio-intro h3 {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.bio-intro span {
+  display: block;
+  margin-bottom: 15px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bio-intro p {
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: #ddd;
+}
+
+/* FULL TEXT BELOW */
+.bio-full {
+  margin-top: 25px;
+}
+
+.bio-full p {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  color: #ddd;
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  .bio-top {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-top img {
+    height: 300px;
+  }
+}
+
+/* GRID LAYOUT */
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-top: 40px;
+}
+
+/* CARD STYLE */
+.leader-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* hover effect */
+.leader-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.05);
+}
+
+/* IMAGE */
+.leader-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* CONTENT AREA */
+.leader-info {
+  padding: 20px;
+}
+
+/* NAME */
+.leader-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+}
+
+/* ROLE */
+.leader-info span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+/* TEXT */
+.leader-info p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d7d7d7;
+  text-align: justify;
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+  margin-top: 60px;
+  padding: 20px 0;
+}
+.leader-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 14px 14px 0 0;
+  filter: saturate(1.05) contrast(1.05);
+}
+.leader-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.leader-info {
+  padding: 18px 20px 25px;
+}
+
+.leader-info h4 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  font-family: "Playfair Display", serif;
+}
+
+.leader-info span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9aa0a6;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.leader-info p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #d6d6d6;
+}
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .leader-card img {
+    height: 260px;
+  }
+}
+
+.leader-info p {
+  opacity: 0.9;
+}
+
+.leader-card {
+  backdrop-filter: blur(6px);
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 layout = 4 cards */
+  gap: 40px;
+  margin-top: 60px;
+  padding: 10px 0;
+}
+.leader-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  background: rgba(255,255,255,0.05);
+}
+.leader-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.leader-info {
+  padding: 18px 20px;
+}
+
+.leader-info h4 {
+  font-size: 1.15rem;
+  margin-bottom: 5px;
+  font-family: "Playfair Display", serif;
+}
+
+.leader-info span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9aa0a6;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.leader-info p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #d6d6d6;
+}
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .leader-card img {
+    height: 300px;
+  }
+}
+.leaders-grid {
+  row-gap: 50px;
+}
+.leader-card {
+  backdrop-filter: blur(8px);
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding: 20px 0;
+}
+.leader-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.4s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+.leader-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.leader-card:hover img {
+  transform: scale(1.05);
+}
+.leader-info {
+  padding: 20px;
+}
+
+.leader-info h4 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-family: "Playfair Display", serif;
+}
+
+.leader-info span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.leader-info p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #d6d6d6;
+  opacity: 0.95;
+}
+.leader-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .leader-card img {
+    height: 320px;
+  }
+}
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+}
+@media (max-width: 900px) {
+  .leaders-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .leader-card img {
+    height: 260px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="top" role="banner" aria-label="Site Header">
+  <div class="header-shell">
+    <div class="header-inner">
+
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation Home">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="Neema Global Foundation Logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL FOUNDATION</div>
+          <span class="tag">HOPE AND MERCY IN ACTION</span>
+        </div>
+      </a>
+
+      <!-- NAV (Leadership + Transparency removed) -->
+      <nav class="desktop" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="about-us.html">About</a>
+        <a href="programs.html">Programs</a>
+       
+        <a href="get-involved.html">Get Involved</a>
+        <a href="donate.html">Donate</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="openSearch" aria-label="Search">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="hamburger" id="openMobile" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-box">
+    <div class="search-bar">
+      <span class="search-icon" aria-hidden="true"></span>
+      <input id="searchInput" type="text" placeholder="Search pages… (realtime)" autocomplete="off" />
+      <button class="icon-btn" id="closeSearch" aria-label="Close search">
+        <span style="font-weight:950;opacity:.9">✕</span>
+      </button>
+    </div>
+
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+  <div class="mobile-sheet" role="dialog" aria-label="Mobile menu">
+    <div class="mobile-top">
+      <a class="brand" href="index.html" aria-label="Neema Global Foundation">
+        <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF logo" />
+        <div>
+          <div class="name">NEEMA GLOBAL</div>
+          <span class="tag">HOPE AND MERCY</span>
+        </div>
+      </a>
+      <button class="close-x" id="closeMobile" aria-label="Close menu"></button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="programs.html">Programs</a>
+     
+      <a href="get-involved.html">Get Involved</a>
+      <a href="donate.html">Donate</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <div class="mobile-actions">
+      <a class="btn primary" href="donate.html">Donate Now</a>
+      <button class="btn ghost" type="button" id="openSearchFromMobile">Search</button>
+    </div>
+
+    <small>NGF • Kenya &amp; Global Partners</small>
+  </div>
+</div>
+
+<!-- HERO (5 SLIDES, constant text) -->
+<section class="hero" aria-label="About Hero">
+  <div class="hero-slide active" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-22-scaled.jpg)"></div>
+  <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-18-1-scaled.jpg)"></div>
+  <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-40-scaled.jpg)"></div>
+  <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-19-scaled.jpg)"></div>
+  <div class="hero-slide" style="background-image:url(https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-43-scaled.jpg)"></div>
+
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="kicker">About NGF</div>
+      <h1>Hope and Mercy in Action — for widows, women, and youth.</h1>
+      <p>
+        Neema Global Foundation (NGF) is a mission-driven non-profit founded in 2016 and formally incorporated in 2025,
+        partnering with Neema Gospel Church to deliver structured, sustainable empowerment initiatives in Kenya.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="get-involved.html">Get Involved</a>
+        <a class="btn secondary" href="donate.html">Support Our Work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots" id="dots" aria-label="Hero slide navigation">
+    <div class="dot active" data-i="0" aria-label="Slide 1"></div>
+    <div class="dot" data-i="1" aria-label="Slide 2"></div>
+    <div class="dot" data-i="2" aria-label="Slide 3"></div>
+    <div class="dot" data-i="3" aria-label="Slide 4"></div>
+    <div class="dot" data-i="4" aria-label="Slide 5"></div>
+  </div>
+</section>
+
+<!-- WHY STARTED + FOUNDER STORY + VISION/MISSION -->
+<section>
+  <div class="container">
+    <div class="section-title reveal">
+      <div>
+        <h2>Why We Exist</h2>
+        <div class="section-sub">
+          A grassroots mission that grew into a foundation focused on dignified livelihoods and resilient communities.
+        </div>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="glass about-card reveal">
+        <h3>Why the NGO was started</h3>
+        <p>
+          NGF was established to address persistent and interlinked challenges affecting vulnerable populations — especially women,
+          widows, and youth — who face systemic barriers to economic opportunities, social protection, and resilience.
+        </p>
+        <p>
+          What began as a mission initiative evolved into a foundation delivering structured, scalable, and sustainable programs
+          across Kenya with strong community ownership.
+        </p>
+
+        <div class="chips">
+          <div class="chip">Economic Empowerment</div>
+          <div class="chip">Decent Work</div>
+          <div class="chip">Climate Resilience</div>
+          <div class="chip">Inclusive Partnerships</div>
+        </div>
+      </div>
+
+      <div class="side-stack">
+        <div class="mini reveal">
+          <div class="k">Founded</div>
+          <div class="v">2016 (Mission Start)</div>
+          <div class="s">Formally incorporated in 2025.</div>
+        </div>
+        <div class="mini reveal">
+          <div class="k">Where we work</div>
+          <div class="v">Kenya</div>
+          <div class="s">Program operations in Kitui & Ruiru (expanding).</div>
+        </div>
+        <div class="mini reveal">
+          <div class="k">Our alignment</div>
+          <div class="v">SDGs</div>
+          <div class="s">Poverty reduction, decent work, climate action, reduced inequalities.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:18px"></div>
+
+    <div class="glass reveal">
+      <h3>The Founder’s Story</h3>
+      <p style="color:var(--muted);margin-top:10px">
+        Neema Global Foundation is driven by leaders recognized for their service and impact.
+        Their passion is rooted in grassroots empowerment — nurturing ethical, innovative, and impactful community leaders,
+        while building practical pathways for dignity and self-reliance.
+      </p>
+
+      <div style="height:10px"></div>
+
+      <h3>Vision & Mission</h3>
+
+      <div class="callout" style="margin-top:12px">
+        <div class="ref">Vision</div>
+        <p style="color:rgba(255,255,255,.86);font-weight:850">
+          To create inclusive and resilient communities where women, widows, and youth rise out of poverty through economic empowerment,
+          access to decent work opportunities, and sustainable livelihoods that enable them to thrive with dignity and purpose.
+        </p>
+      </div>
+
+      <div class="callout">
+        <div class="ref">Mission</div>
+        <p style="color:rgba(255,255,255,.86);font-weight:850">
+          To advance sustainable social justice by investing in human capital, fostering inclusive stakeholder partnerships,
+          and empowering women, widows, youth, and other vulnerable populations to overcome poverty through economic empowerment,
+          access to decent work opportunities, and pathways to dignified, self-reliant livelihoods.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDING PRINCIPLE -->
+<div class="glass reveal guiding-card">
+  <h3>Guiding Principle</h3>
+
+  <p class="guiding-verse">
+    By empowering the vulnerable, uplifting communities, and nurturing leaders to transform
+    lives with dignity, justice, and hope, we advance the Great Commission (Matthew 28:18–20)
+    through sustainable and lasting impact.
+  </p>
+</div>
+
+<!-- PROBLEM STATEMENT -->
+<section class="problem">
+  <div class="container">
+    <div class="section-title reveal">
+      <div>
+        <h2>The Problem We Address</h2>
+        <div class="section-sub">Widows remain among the most marginalized and structurally vulnerable populations in Kenya.</div>
+      </div>
+    </div>
+
+    <div class="glass reveal">
+      <p>
+        Despite national development gains, widows in Kenya remain among the most
+        marginalized and structurally vulnerable populations. Kenya is estimated to have
+        approximately <b>8 million widows</b> representing nearly <b>15%</b> of the total population. A
+        significant proportion live in extreme poverty, facing systemic exclusion from economic
+        opportunities, social protection systems, and inheritance rights.    
+      </p>
+      <p>
+        Kenya is ranked 33rd globally among countries with the harshest environments for
+        widows, underscoring the severity of cultural, legal, and economic challenges confronting
+        this group. Widows, particularly in rural and underserved areas, frequently experience
+        property dispossession, loss of land rights, and economic disempowerment following the
+        death of a spouse. Harmful traditional practices such as forced remarriage and widow
+        inheritance continue to expose women to exploitation, gender-based violence, and health
+        risks.       
+      </p>
+      <p>
+        Social stigma further compounds vulnerability. Widows often face isolation, neglect, and
+        rejection by in-laws and community structures, limiting their participation in decision-
+        making, access to services, and livelihood opportunities. These dynamics contribute to
+        intergenerational poverty, negatively affecting children and dependents under their care.
+        </p>
+		
+		<p>
+       Health vulnerabilities are also pronounced. Widows in Kenya report disproportionately
+       high rates of HIV/AIDS, often exacerbated by harmful practices, economic insecurity, and
+       limited access to healthcare and psychosocial support. The absence of integrated
+       livelihood, protection, and resilience-building interventions leaves many widows trapped
+       in cycles of dependency and vulnerability.     
+      </p>
+	  
+	  <p>
+      Without targeted, coordinated, and sustainable responses that integrate economic
+      empowerment, skills development, social justice, and climate resilience, widows, women,
+      and youth will remain trapped in cycles of poverty, dependency, and exclusion. Addressing
+      these systemic barriers is both a moral imperative and a strategic development priority for
+      achieving inclusive, resilient, and equitable communities in Kenya       
+      </p>
+
+      <div class="callout">
+        <div class="ref">Our commitment</div>
+        <p style="color:rgba(255,255,255,.86);font-weight:850">
+          We build pathways to decent work and dignified livelihoods through community-led, partnership-driven programs —
+          designed to be scalable, sustainable, and locally owned.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONITORING, EVALUATION, AND LEARNING (M&E) -->
+<section id="mel">
+  <div class="container">
+    <div class="section-title reveal">
+      <div>
+        <h2>Monitoring, Evaluation, and Learning (M&amp;E)</h2>
+        <div class="section-sub">
+          Evidence-driven programming that measures outcomes, strengthens accountability, and improves impact over time.
+        </div>
+      </div>
+    </div>
+
+    <div class="glass reveal">
+      <p style="color:rgba(255,255,255,.78);margin-top:6px">
+        NGF applies evidence-based programming, with measurable indicators, baseline and
+        endline assessments, and adaptive learning to inform scale, replication, and long-term
+        sustainability.
+      </p>
+
+      <div class="callout">
+        <div class="ref">What this means</div>
+        <p style="color:rgba(255,255,255,.86);font-weight:850">
+          We track progress, learn from results, and continuously improve our programs — ensuring resources translate into real,
+          measurable change for widows, women, and youth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section>
+  <div class="container">
+
+    <div class="section-title reveal">
+      <div>
+        <h2>Leadership</h2>
+        <div class="section-sub">
+          Oversight and governance rooted in service, accountability, and community transformation.
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔥 FEATURED LEADERS -->
+    <div class="featured-leaders">
+
+  <!-- BISHOP -->
+  <div class="featured-card full-bio">
+
+  <div class="bio-top">
+
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-24-at-16.11.31.jpeg" alt="Bishop">
+
+    <div class="bio-intro">
+      <h3>Dr. Bishop Jackson Kingori Wanjeru</h3>
+      <span>Chairperson</span>
+
+      <p>
+         Dr. Bishop Jackson Kingori is a distinguished leader with a strong academic, corporate, and ministry background. 
+		 He holds a Bachelor of Science degree from the University of Nottingham, a Fellow of the Chartered Insurance Institute (FCII) 
+		 from the College of Insurance, London, and is a Licensed Insurer. He is also a Certified Trainer from the University 
+		 of Slough and holds a Master’s degree in Counseling from Criswell University, Dallas, Texas. 
+		 In recognition of his leadership and societal impact, he was conferred an Honorary Doctorate in Leadership in 2023.      
+      </p>
+
+      <p>
+        Dr. Bishop Kingori has extensive experience in both the corporate and faith sectors. 
+		He has served as a General Manager in leading insurance organizations in Kenya and the United States, 
+		demonstrating strong leadership in business, governance, and organizational development. 
+		In ministry, he is the Presiding Bishop of Neema Gospel Churches International.
+		
+      </p>
+    </div>
+
+  </div>
+
+  <div class="bio-full">
+    <p>
+         In 1999, together with his wife, he founded Hope & Mercy Ministry International Inc., an outreach initiative
+		 focused on education support for orphaned children and economic empowerment for vulnerable families through sustainable livelihood programs.	
+      </p>
+  
+    <p>
+      In 2003, he founded Neema Gospel Church in Dallas, Texas, which has since grown into a major diaspora ministry with branches 
+	  in the United States, Kenya, and international partnerships. The church has been instrumental in implementing 
+	  community transformation programs across Africa, including women’s economic empowerment initiatives, orphan support programs, and missionary sponsorships in multiple countries.
+    </p>
+
+    <p>
+     Under his leadership, Neema Gospel Churches International has driven impactful widows’ empowerment programs, 
+	 including the donation of 100 heifers in Nyeri County (2022), 156 German Alpine goats in Kitui County,
+	 100 heifers in Nakuru County (2024), and seed capital support to widows in Kiambu County (2025). 
+	 These initiatives continue to promote sustainable livelihoods and economic independence. 
+	 Dr. Bishop Kingori has also contributed to international faith representation efforts, 
+	 including initiatives that enhanced Kenya’s visibility at the River Jordan baptismal site in Israel.
+    </p>
+
+    <p>
+      He is a strong advocate for holistic empowerment, believing in the development of multiple income streams through 
+	  God-given talents and skills. His leadership philosophy integrates faith, entrepreneurship, and community transformation.
+	  Beyond ministry and leadership, he enjoys golfing, traveling, community development engagement, 
+	  and mentoring emerging leaders in accountability, governance, and management. 
+	  His pursuit of a Master’s degree in Counseling reflects his commitment to holistic care, 
+	  through which he provides pastoral counseling and family therapy support.
+
+    </p>
+  </div>
+
+</div>
+
+
+    <!-- 🔥 OTHER LEADERS -->
+    <div class="leaders-grid">
+
+  <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-16-at-12.46.59-1.jpeg" alt="Christine Mwambia">
+    <div class="leader-info">
+      <h4>Christine Mwambia. BCOM, MBA </h4>
+      <span>Secretary</span>
+
+      <p>
+       Christine is a seasoned healthcare strategic leader with over a decade of experience in commercial strategy and operations, 
+	   she brings a results-driven approach to driving growth and organizational excellence. 
+	   She holds a Diploma in Public Relations, a Bachelor of Commerce (Marketing) from Africa Nazarene University, 
+	   and an MBA specializing in Artificial Intelligence and Organisational Growth from Nexford University.
+	   Recognized as a trailblazer and corporate leader, she is known for her winning mindset, strategic insight, and commitment 
+	   to innovation in the healthcare sector. Beyond her professional achievements, she is deeply passionate about 
+	   advancing faith-based women’s leadership and empowering women to influence the marketplace with purpose and integrity
+	   Christine is married to Samuel Karani and reside in Nairobi, Kenya
+ 
+        
+      </p>
+    </div>
+  </div>
+
+     <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-16-at-12.46.59-2.jpeg" alt="Dr. Solomon Ndungu">
+    <div class="leader-info">
+      <h4>Dr.Solomon Ndungu, Ph.D., CPA, CFA</h4>
+      <span>Treasurer</span>
+
+      <p>
+         Dr. Ndungu is an accomplished investment and data analytics executive with over two decades of experience spanning finance, risk management, and data science.
+		 He currently serves as Executive Director of Data and Analytics at MUFG Investor Services, where he leads the firm’s data strategy, analytics engineering, 
+		 and AI-driven innovation initiatives. Prior to this, he served as Managing Director of Risk and Portfolio Construction at Beneficient, overseeing complex portfolio analytics and risk modeling.
+		 Beyond the corporate boardroom, Dr. Ndungu is a Dave Ramsey Certified Financial Coach dedicated to helping individuals and families achieve financial freedom. 
+		 He is a passionate advocate for financial literacy, frequently teaching on money and investment strategies in churches and professional spaces. 
+		 At Neema Gospel Church, he leads the Financial Peace University program, empower individuals to move from debt to wealth-building through practical, 
+		 data-driven financial decisions.Dr. Ndungu’s commitment to mentorship extends to the arts; an avid guitarist, he serves in the church worship ministry and
+		 finds great fulfillment in training and mentoring young people to develop their musical gifts.He holds a Ph.D. in Finance from the University of North Texas, 
+		 a Master’s in Data Science from Southern Methodist University, an MBA in Finance from the University of Dallas, and a Bachelor of Commerce from Kenyatta University.
+		 He holds the following professional designations: Certified Public Accountant (CPA), Chartered Financial Analyst (CFA), Financial Risk Manager (FRM), 
+		 Certificate in Quantitative Finance (CQF) and the Certified Data Management Professional (CDMP).
+        
+      </p>
+    </div>
+  </div>
+  
+  <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-16-at-12.46.59.jpeg" alt="Dr. Milkah Mwaura">
+    <div class="leader-info">
+      <h4>Dr. Milka Ndungu, DNP, APRN, NP-C, NE-BC</h4>
+      <span>Vice Chair</span>
+
+      <p>
+        Dr. Milka Ndungu is a healthcare executive and community leader with over 20 years of experience spanning direct patient care, clinical management, and operational leadership. 
+		A board-certified Nurse Practitioner, she is currently a Clinical and administrative Manager at Dallas Nephrology Associates, where she manages the Advanced Practice Providers, 
+		ensuring excellence in patient care delivery and provider efficiency.Beyond her professional achievements, Dr. Milka is passionate about community service. 
+		She is currently serving as a Deacon and Member of the Board for Neema Gospel Church in Dallas, as well as the Ladies Ministry Leader.
+		Outside of church, she is a health and wellness coach leading initiatives that empower individuals to adopt sustainable, healthy lifestyles.
+		Dr. Milka Ndungu earned her Doctor of Nursing Practice (DNP), Master’s, and Bachelor of Science in Nursing from Texas Woman’s University. 
+		She is a board-certified Nurse Executive and Advanced Practice Provider. 
+		A Dallas resident for many years, Dr. Milka is dedicated to leveraging her clinical expertise and leadership experience to create lasting social impact. 
+		She is a long time resident of the Dallas area, where she shares her life in Dallas with her husband, Dr. Solomon Ndungu and their three children.
+        
+      </p>
+    </div>
+  </div>
+     
+	 <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/NGF-Photos-9-scaled.jpg" alt="Lucy Kingori">
+    <div class="leader-info">
+      <h4>Dr Lucy Kingori</h4>
+      <span>Vice Secretary</span>
+
+      <p>
+         Dr. Lucy Kingori is a distinguished pharmaceutical professional and humanitarian leader whose life’s work has been dedicated to advancing 
+		 community health and empowering vulnerable populations. With over 40 years of experience practicing pharmacy in Kenya and the United States, 
+		 she has built a legacy of service that extends far beyond clinical care into transformative social impact.Throughout her career and into retirement, 
+		 Dr. Kingori has remained deeply committed to humanitarian work. For over 26 years, she has served through Hope & Mercy Ministry International, 
+		 supporting vulnerable children by providing access to education through school fees, uniforms, and essential resources. 
+		 She has also personally sponsored children through Share International, ensuring long-term educational and social support, and has partnered with 
+		 Amazing Grace Children’s Home to care for orphaned children lacking basic necessities.In recent years, Dr. Lucy Kingori has focused on sustainable 
+		 economic empowerment for widows and underserved families. Since 2022, she has been instrumental in initiatives that have provided dairy heifers to over 200 widows,
+		 German Alpine milking goats to more than 200 beneficiaries, and seed capital to approximately 100 women to start or expand small businesses. 
+		 These programs have created sustainable income streams, improved food security, and restored dignity for hundreds of families.
+		 Dr. Lucy Kingori’s vision is to scale this impact through a structured charitable foundation focused on widows’ empowerment, child support programs,
+		 and long-term poverty alleviation through sustainable livelihood initiatives.She is widely respected for her compassion, leadership, 
+		 and unwavering commitment to transforming lives through practical, dignity-driven solutions.
+      
+      </p>
+    </div>
+  </div>
+    
+  <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-16-at-12.47.00.jpeg" alt="Samuel Karani">
+    <div class="leader-info">
+      <h4>Samuel K. Karani, CPA(K), BCom, MBA</h4>
+      <span>Vice Treasurer</span>
+
+      <p>
+        Samuel Karani is a purpose-driven leader with over 20 years of experience building and scaling high-impact businesses across Sub-Saharan Africa. 
+		As a finance-trained commercial executive, he has dedicated his career to delivering disciplined operational execution while maintaining a steadfast commitment to purpose-led performance. 
+		For Samuel, business success is inseparable from community impact. Since January 2022, he has been a trusted steward of B-Corp certification, 
+		ensuring that commercial outcomes are balanced with social and environmental responsibility. His passion for community 
+		alignment extends beyond the boardroom through his focus on regenerative tourism, capacity building, and environmental stewardship.
+		He currently serves as the General Manager for Intrepid East Africa, where he oversees operations across 11 countries. 
+		His leadership is defined by a unique blend of financial rigor and strategic growth, consistently scaling regional revenue and expanding B2B partnerships. 
+		Samuel is a certified accountant (CPA-K) and holds Bachelor of Commerce (Finance) with First Class Honors from KCA University, 
+		Master of Business Administration (MBA) from JKUAT University, and graduate certification in Business strategy and Sustainable Destination Management from Cornell University.  Samuel is married to Christine Mwambia and resides in Nairobi, Kenya
+
+        
+      </p>
+    </div>
+  </div>
+
+  
+    <div class="leader-card">
+    <img src="https://neemagospelchurch.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-24-at-16.12.04.jpeg" alt="Hannah Muchiri">
+    <div class="leader-info">
+      <h4>Hannah Muchiri</h4>
+      <span>Board Member</span>
+
+      <p>
+         Hannah Muchiri is a passionate leader, mentor, and healthcare professional dedicated to serving both her church and community.
+		 At Neema Church Dallas, she faithfully mentors young girls, helping them grow in confidence, character, and faith. 
+		 With a natural gift for connection and encouragement, Hannah creates safe spaces where the next generation can thrive.
+		 A trusted strategist and skilled event planner, she brings vision to life with excellence and organization. 
+		 Her strong personal and management skills make her a dependable leader who handles details with precision while keeping people at the 
+		 center of everything she does. She has also walked alongside families in navigating important financial decisions, 
+		 offering guidance in investments and insurance to help them build secure and stable futures.Professionally, 
+		 Hannah serves as a Charge Nurse, where she leads with compassion and competence. Known for her outstanding people skills and organizational strength,
+		 she balances leadership with empathy, creating environments where both patients and healthcare professionals feel valued and 
+		 supported.Hannah Muchiri exemplifies servant leadership—impacting lives through mentorship, strategic planning, and compassionate healthcare leadership.       
+      </p>
+    </div>
+  </div>
+  
+      
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <img src="https://cdn.prod.website-files.com/67b61e371284645145ba494c/69a6a416583028c567d3efb7_Neema-Logo%20(2).png" alt="NGF Logo">
+          <div>
+            <div style="font-weight:950">Neema Global Foundation</div>
+            <div style="color:rgba(255,255,255,.65);font-size:.9rem">Hope and Mercy in Action</div>
+          </div>
+        </div>
+        <p>Empowering widows, women, and youth for dignified livelihoods and resilient communities in Kenya.</p>
+      </div>
+
+      <div class="footer-card">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about-us.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>Media</h4>
+        <ul class="footer-links">
+          <li><a href="media.html">Stories</a></li>
+          <li><a href="media.html#documentary">Documentaries</a></li>
+          <li><a href="media.html#gallery">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-card">
+        <h4>Newsletter</h4>
+        <p>Monthly updates on impact, stories, and ways to help.</p>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Thanks! Newsletter form received.');">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Neema Global Foundation. All rights reserved.</div>
+      <div class="credit">
+        Designed with excellence by
+        <a href="https://wa.me/254707943284" target="_blank" rel="noopener">Rosset Creatives</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="profile-modal" id="profileModal">
+  <div class="profile-content">
+
+    <button class="close-profile" id="closeProfile">✕</button>
+
+    <h2 id="profileName"></h2>
+
+    <div class="profile-scroll" id="profileText"></div>
+
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12l7-7z"/></svg>
+</button>
+  </div>
+</div>
+<script>
+  /* =========================
+     YEAR
+  ========================= */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* =========================
+     REVEAL ON SCROLL
+  ========================= */
+  (function(){
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.16});
+    els.forEach(el=>io.observe(el));
+  })();
+
+  /* =========================
+     HERO SLIDER (5)
+  ========================= */
+  (function(){
+    const slides = Array.from(document.querySelectorAll(".hero-slide"));
+    const dots = Array.from(document.querySelectorAll(".dot"));
+    let i = 0;
+    let t;
+
+    const go = (n)=>{
+      slides[i].classList.remove("active");
+      dots[i].classList.remove("active");
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add("active");
+      dots[i].classList.add("active");
+    };
+
+    const start = ()=>{
+      clearInterval(t);
+      t = setInterval(()=>go(i+1), 5200);
+    };
+
+    dots.forEach(d=>{
+      d.addEventListener("click", ()=>{
+        go(+d.dataset.i);
+        start();
+      });
+    });
+
+    start();
+  })();
+
+  /* =========================
+     MOBILE MENU
+  ========================= */
+  (function(){
+    const panel = document.getElementById("mobilePanel");
+    const open = document.getElementById("openMobile");
+    const close = document.getElementById("closeMobile");
+
+    const show = ()=>{ panel.classList.add("active"); panel.setAttribute("aria-hidden","false"); };
+    const hide = ()=>{ panel.classList.remove("active"); panel.setAttribute("aria-hidden","true"); };
+
+    open.addEventListener("click", show);
+    close.addEventListener("click", hide);
+    panel.addEventListener("click", (e)=>{ if(e.target === panel) hide(); });
+
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") hide(); });
+  })();
+
+  /* =========================
+     SEARCH (REALTIME)
+  ========================= */
+  (function(){
+    const overlay = document.getElementById("searchOverlay");
+    const open = document.getElementById("openSearch");
+    const close = document.getElementById("closeSearch");
+    const input = document.getElementById("searchInput");
+    const results = document.getElementById("searchResults");
+
+    const pages = [
+      {title:"Home", desc:"Overview, mission, stats, stories", href:"index.html"},
+      {title:"About", desc:"Why we exist, vision & mission, leadership", href:"about.html"},
+      {title:"Programs", desc:"Our pillars, initiatives, and services", href:"programs.html"},
+      {title:"Impact", desc:"Counties reached, outcomes, reports", href:"impact.html"},
+      {title:"Get Involved", desc:"Volunteer, partner, collaborate", href:"get-involved.html"},
+      {title:"Donate", desc:"Give securely to support widows and youth", href:"donate.html"},
+      {title:"Media", desc:"Stories, documentaries, gallery", href:"media.html"},
+      {title:"Contact", desc:"Reach us and visit", href:"contact.html"},
+      {title:"FAQ", desc:"Answers to common questions", href:"faq.html"},
+    ];
+
+    const render = (list)=>{
+      if(!list.length){
+        results.innerHTML = '<div class="no-results">No matches. Try another keyword.</div>';
+        return;
+      }
+      results.innerHTML = list.map(p=>(
+        `<a class="result-item" href="${p.href}">
+          <strong>${p.title}</strong>
+          <span>${p.desc}</span>
+        </a>`
+      )).join("");
+    };
+
+    const show = ()=>{
+      overlay.classList.add("active");
+      overlay.setAttribute("aria-hidden","false");
+      input.value = "";
+      render(pages);
+      setTimeout(()=>input.focus(), 50);
+    };
+    const hide = ()=>{
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden","true");
+      input.blur();
+    };
+
+    open.addEventListener("click", show);
+    close.addEventListener("click", hide);
+    overlay.addEventListener("click", (e)=>{ if(e.target === overlay) hide(); });
+
+    input.addEventListener("input", ()=>{
+      const q = input.value.trim().toLowerCase();
+      const filtered = pages.filter(p =>
+        p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)
+      );
+      render(filtered);
+    });
+
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") hide(); });
+  })();
+
+  /* =========================
+     BACK TO TOP
+  ========================= */
+  (function(){
+    const btn = document.getElementById("toTop");
+    const onScroll = ()=>{
+      if(window.scrollY > 600) btn.classList.add("show");
+      else btn.classList.remove("show");
+    };
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+    btn.addEventListener("click", ()=>window.scrollTo({top:0,behavior:"smooth"}));
+  })();
+  
+  (function(){
+  const openBtn = document.getElementById("openProfile");
+  const modal = document.getElementById("profileModal");
+  const closeBtn = document.getElementById("closeProfile");
+
+  openBtn.addEventListener("click", ()=>{
+    modal.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", ()=>{
+    modal.classList.remove("active");
+  });
+
+  modal.addEventListener("click", (e)=>{
+    if(e.target === modal){
+      modal.classList.remove("active");
+    }
+  });
+
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape"){
+      modal.classList.remove("active");
+    }
+  });
+})();
+
+const profiles = {
+  bishop: {
+    name: "Bishop Jackson K Wanjeru",
+    text: `
+      <p>Jackson Kingori is a graduate from the University of Nottingham...</p>
+
+      <p>He has served both in the marketplace and ministry, rising to leadership in insurance and now serving as Presiding Bishop of Neema Gospel Churches International.</p>
+
+      <p>He has led impactful community programs including livestock donations, widow empowerment, and youth support across Kenya.</p>
+
+      <p>His mission is centered on dignity, empowerment, and sustainable transformation.</p>
+    `
+  },
+
+  lucy: {
+    name: "Dr. Lucy Kingori",
+    text: `
+      <p>Dr. Lucy Kingori serves as Vice Secretary...</p>
+
+      <p>She plays a key role in governance, coordination, and ensuring accountability across programs.</p>
+
+      <p>Her leadership strengthens operational structure and supports long-term impact.</p>
+    `
+  }
+};
+
+const modal = document.getElementById("profileModal");
+const nameEl = document.getElementById("profileName");
+const textEl = document.getElementById("profileText");
+
+document.querySelectorAll(".open-profile").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const key = btn.dataset.profile;
+
+    nameEl.innerText = profiles[key].name;
+    textEl.innerHTML = profiles[key].text;
+
+    modal.classList.add("active");
+  });
+});
+
+document.getElementById("closeProfile").onclick = ()=>{
+  modal.classList.remove("active");
+};
+
+modal.addEventListener("click",(e)=>{
+  if(e.target === modal){
+    modal.classList.remove("active");
+  }
+});
+</script>
+
+</body>
+</html>
